@@ -1,11 +1,11 @@
 #include "utils.h"
-void save_to_file(std::string filename,std::string data){
+void write_to_file(std::string filename,std::string data){
     std::ofstream current_file;
     current_file.open ("./workspace/"+filename);
     current_file << data;
     current_file.close();
 }
-void save_to_temp(std::string data){
+void write_to_temp(std::string data){
     //takes a string of data and saves it to a file named "tempfile.csv"
     remove("./temp/Tempfile.csv"); // remove the file before use since we will use the temp file over and over again
     std::ofstream temp_file;

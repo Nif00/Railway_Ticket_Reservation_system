@@ -1,3 +1,4 @@
+#pragma once
 #include "utils.h"
 struct Train{
     int id;
