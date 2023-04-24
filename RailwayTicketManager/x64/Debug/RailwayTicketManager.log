@@ -1,0 +1,10 @@
+﻿  campaign_data_handler.cpp
+  FileIO.cpp
+  main.cpp
+  Passenger_data_handler.cpp
+  Ticket_data_handler.cpp
+  trains_data_handler.cpp
+  user_interface_backend.cpp
+  Source.cpp
+  Generating Code...
+  RailwayTicketManager.vcxproj -> E:\Code\cpp\RailwayTicketManager\x64\Debug\RailwayTicketManager.exe
