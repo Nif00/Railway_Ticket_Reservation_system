@@ -9,7 +9,7 @@ std::string write_campaign_data_file(campaign to_write) {
                               std::to_string(to_write.seat.column) + "," +
                               std::to_string(to_write.seat.row) + "," +
                               std::to_string(to_write.seat.status)+"\n");
-    write_to_file("campaign_data.csv", data_to_write);
+    write_to_file("campaign_data.csv500", data_to_write);
 }
 
 
