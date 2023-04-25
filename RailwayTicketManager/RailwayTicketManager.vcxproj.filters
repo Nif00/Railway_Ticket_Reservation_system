@@ -15,56 +15,53 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\campaign_data_handler.cpp">
+    <ClCompile Include="campaign_data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\FileIO.cpp">
+    <ClCompile Include="FileIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\main.cpp">
+    <ClCompile Include="user_interface_backend.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\Passenger_data_handler.cpp">
+    <ClCompile Include="trains_data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\Ticket_data_handler.cpp">
+    <ClCompile Include="Ticket_data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\trains_data_handler.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Passenger_data_handler.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\user_interface_backend.cpp">
+    <ClCompile Include="Passenger_data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\campaign_data_handler.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="campaign_data_handler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\FileIO.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="FileIO.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\Passenger_data_handler.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\Ticket_data_handler.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="user_interface_backend.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\trains_data_handler.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="trains_data_handler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\user_interface_backend.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\utils.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Ticket_data_handler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Railway_Ticket_Reservation_system\README.md">
+    <None Include="README.md">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

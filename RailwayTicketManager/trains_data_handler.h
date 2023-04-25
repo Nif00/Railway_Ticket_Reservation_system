@@ -6,4 +6,5 @@ struct Train {
     std::string company_name;
     int rows;
     int columns;
+    int num_car;
 };

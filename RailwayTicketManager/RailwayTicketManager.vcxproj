@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileIO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="campaign_data_handler.cpp" />
+    <ClCompile Include="Passenger_data_handler.cpp" />
+    <ClCompile Include="Passenger_data_handler.h" />
+    <ClCompile Include="Ticket_data_handler.cpp" />
+    <ClCompile Include="trains_data_handler.cpp" />
+    <ClCompile Include="user_interface_backend.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="campaign_data_handler.h" />
+    <ClInclude Include="FileIO.h" />
+    <ClInclude Include="Ticket_data_handler.h" />
+    <ClInclude Include="trains_data_handler.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="user_interface_backend.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,28 +147,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\campaign_data_handler.cpp" />
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\FileIO.cpp" />
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\main.cpp" />
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\Passenger_data_handler.cpp" />
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\Ticket_data_handler.cpp" />
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\trains_data_handler.cpp" />
-    <ClCompile Include="..\..\Railway_Ticket_Reservation_system\user_interface_backend.cpp" />
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\campaign_data_handler.h" />
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\FileIO.h" />
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\Passenger_data_handler.h" />
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\Ticket_data_handler.h" />
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\trains_data_handler.h" />
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\user_interface_backend.h" />
-    <ClInclude Include="..\..\Railway_Ticket_Reservation_system\utils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\Railway_Ticket_Reservation_system\README.md" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

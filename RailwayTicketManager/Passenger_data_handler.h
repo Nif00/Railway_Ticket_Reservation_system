@@ -6,5 +6,4 @@ struct Passenger {
     std::string surname;
     int tckn;
     int age;
-    int ticketid;
 };
