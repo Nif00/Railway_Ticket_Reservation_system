@@ -3,5 +3,5 @@
 
 int main() {
     cout << "aaaaaaaaaaAAAA" << endl;
-    cout << "can baba wuuu" << endl;
+    cout << "selim baba wuuu" << endl;
 }
