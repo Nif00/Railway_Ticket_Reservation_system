@@ -31,3 +31,6 @@
 *.exe
 *.out
 *.app
+
+# Ignore the junk visual studio creates
+.vs/
