@@ -1,5 +1,5 @@
 #include "utils.h"
-void write_to_file(string filename, string data) {
+/*void write_to_file(string filename, string data) {
     ofstream current_file;
     current_file.open("./workspace/" + filename);
     current_file << data;
