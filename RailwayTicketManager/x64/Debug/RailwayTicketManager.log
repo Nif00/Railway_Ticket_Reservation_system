@@ -1,10 +1,15 @@
-﻿  campaign_data_handler.cpp
-  FileIO.cpp
-  main.cpp
+﻿  FileIO.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\Railway_Ticket_Reservation_system\FileIO.cpp': No such file or directory
   Passenger_data_handler.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\Railway_Ticket_Reservation_system\Passenger_data_handler.cpp': No such file or directory
   Ticket_data_handler.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\Railway_Ticket_Reservation_system\Ticket_data_handler.cpp': No such file or directory
+  campaign_data_handler.cpp
+E:\Code\cpp\Railway_Ticket_Reservation_system\campaign_data_handler.cpp(1,10): fatal error C1083: Cannot open include file: 'utils.h': No such file or directory
+  main.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\Railway_Ticket_Reservation_system\main.cpp': No such file or directory
   trains_data_handler.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\Railway_Ticket_Reservation_system\trains_data_handler.cpp': No such file or directory
   user_interface_backend.cpp
-  Source.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\Railway_Ticket_Reservation_system\user_interface_backend.cpp': No such file or directory
   Generating Code...
-  RailwayTicketManager.vcxproj -> E:\Code\cpp\RailwayTicketManager\x64\Debug\RailwayTicketManager.exe
