@@ -2,8 +2,8 @@
 #include "utils.h"
 struct Passenger {
     int id;
-    std::string name;
-    std::string surname;
+    string name;
+    string surname;
     int tckn;
     int age;
 };

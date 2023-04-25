@@ -1,3 +1,3 @@
 #pragma once
 #include "utils.h"
-std::string read_user_data(std::string display_to_user);
+string read_user_data(string display_to_user);
