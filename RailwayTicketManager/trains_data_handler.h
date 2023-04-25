@@ -2,9 +2,10 @@
 #include "utils.h"
 struct Train {
     int id;
-    string name;
-    string company_name;
-    int rows;
-    int columns;
-    int num_car;
+    int wagon;
+    string block;
+    int seatNumber[20];
+
 };
+int createID();
+int createWagon();

@@ -1,2 +1,16 @@
-﻿  main.cpp
-  RailwayTicketManager.vcxproj -> C:\Users\CASPER\Documents\EEE120\x64\Debug\RailwayTicketManager.exe
+﻿  FileIO.cpp
+  Passenger_data_handler.cpp
+  Passenger_data_handler.h
+  Ticket_data_handler.cpp
+  campaign_data_handler.cpp
+  main.cpp
+  trains_data_handler.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(6,37): warning C4244: 'bağımsız değişken': '_Rep' - 'unsigned int' dönüşümü; veri kaybı olabilir
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  user_interface_backend.cpp
+  Kod Üretiliyor...
+x64\Debug\Passenger_data_handler.obj : warning LNK4042: Nesne birden çok kez belirtildi; fazla olanlar yoksayıldı
+  RailwayTicketManager.vcxproj -> C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe
