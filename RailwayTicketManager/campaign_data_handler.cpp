@@ -94,7 +94,6 @@ string read_campaign_data_file() {
         int seats_available = stoi(seats_available_str);
 
         Campaign campaign = { id, assigned_train_id, total_seats, seats_available };
-
         string seat_id_str, seat_row_str, seat_column_str, seat_status_str;
         while (getline(ss, seat_id_str, ',')) {
             getline(ss, seat_row_str, ',');
