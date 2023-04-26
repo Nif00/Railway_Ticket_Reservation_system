@@ -1,26 +1,16 @@
 #include "utils.h"
 #include "campaign_data_handler.h"
-void write_campaign_data_file(Campaign to_write) {
-    string data_to_write = (to_string(to_write.id) + "," +
-        to_string(to_write.assigned_train_id) + "," +
-        to_string(to_write.total_seats) + "," +
-        to_string(to_write.seats_available) + "," +
-        to_string(to_write.seat.id) + "," +
-        to_string(to_write.seat.column) + "," +
-        to_string(to_write.seat.row) + "," +
-        to_string(to_write.seat.status) + "\n");
-    write_to_file("campaign_data.csv", data_to_write);
-}
 
 vector<Campaign> read_from_csv() {
     // Open the file for reading
-    ifstream file("./workspace/campaign_data.csv");
+    ifstream file("campaign_data.csv");
 
     if (!file.good()) {
-        ofstream newfile("./workspace/campaign.csv");
+        ofstream newfile("campaign_data.csv");
         newfile.close();
-        file.open("./workspace/campaign.csv");
+        file.open("campaign_data.csv");
     }
+
     vector<Campaign> campaigns;
 
     // Check if the file is open
@@ -43,17 +33,25 @@ vector<Campaign> read_from_csv() {
             ss.ignore();
 
             // Read the seat data
-            Seat s;
-            while (ss >> s.id) {
-                ss.ignore();
-                ss >> s.row;
-                ss.ignore();
-                ss >> s.column;
-                ss.ignore();
-                ss >> s.status;
-
-                c.seat.push_back(s);
+            string seat_data;
+            getline(ss, seat_data);
+            stringstream seat_ss(seat_data);
+            vector<Seat> seats;
+            while (getline(seat_ss, seat_data, '|')) {
+                stringstream seat_data_ss(seat_data);
+                Seat s;
+                seat_data_ss >> s.id;
+                seat_data_ss.ignore();
+                seat_data_ss >> s.row;
+                seat_data_ss.ignore();
+                seat_data_ss >> s.column;
+                seat_data_ss.ignore();
+                seat_data_ss >> s.status;
+                seats.push_back(s);
             }
+
+            // Assign the vector of seats to the campaign struct
+            c.seat = seats;
 
             // Add the campaign to the vector
             campaigns.push_back(c);
@@ -67,6 +65,37 @@ vector<Campaign> read_from_csv() {
     }
 
     return campaigns;
+}
+
+void save_to_csv(const Campaign& new_campaign) {
+    // Open the file for appending
+    ofstream file("campaign_data.csv", ios::app);
+
+    // Check if the file is open
+    if (file.is_open()) {
+        // Write the new campaign data to the file
+        file << new_campaign.id << ","
+            << new_campaign.assigned_train_id << ","
+            << new_campaign.total_seats << ","
+            << new_campaign.seats_available << ",";
+
+        // Write the seat data to the file
+        for (const Seat& s : new_campaign.seat) {
+            file << s.id << "|"
+                << s.row << "|"
+                << s.column << "|"
+                << s.status << ",";
+        }
+
+        // Write the end-of-line character to the file
+        file << endl;
+
+        // Close the file
+        file.close();
+    }
+    else {
+        cout << "Error: Unable to open file for writing." << endl;
+    }
 }
 /*
 string read_campaign_data_file() {
