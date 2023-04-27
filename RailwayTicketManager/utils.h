@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include "FileIO.h"
 #include <sstream>
+
+#include "FileIO.h"
+
 using namespace std;
+
+extern bool debug;

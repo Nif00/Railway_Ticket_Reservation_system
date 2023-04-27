@@ -1,7 +1,7 @@
 #include "utils.h"
 #include "campaign_data_handler.h"
 
-vector<Campaign> read_from_csv() {
+vector<Campaign> read_campaign_data_from_csv() {
     // Open the file for reading
     ifstream file("campaign_data.csv");
 
@@ -37,7 +37,7 @@ vector<Campaign> read_from_csv() {
             getline(ss, seat_data);
             stringstream seat_ss(seat_data);
             vector<Seat> seats;
-            while (getline(seat_ss, seat_data, '|')) {
+            while (getline(seat_ss, seat_data, ',')) {
                 stringstream seat_data_ss(seat_data);
                 Seat s;
                 seat_data_ss >> s.id;
@@ -67,7 +67,7 @@ vector<Campaign> read_from_csv() {
     return campaigns;
 }
 
-void save_to_csv(const Campaign& new_campaign) {
+void save_campaign_data_to_csv(const Campaign& new_campaign) {
     // Open the file for appending
     ofstream file("campaign_data.csv", ios::app);
 
@@ -97,50 +97,34 @@ void save_to_csv(const Campaign& new_campaign) {
         cout << "Error: Unable to open file for writing." << endl;
     }
 }
-/*
-string read_campaign_data_file() {
-    ifstream file("campaign.csv");
 
-    // Check if the file exists, if not create it
-    if (!file.good()) {
-        ofstream newfile("./workspace/campaign.csv");
-        newfile.close();
-        file.open("./workspace/campaign.csv");
+
+void print_csv_lines(int num_lines) {
+    if (!debug) {
+        cout << "only available in --debug mode";
+        return;
     }
-    vector<Campaign> campaigns;
-    string line;
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string id_str, assigned_train_id_str, total_seats_str, seats_available_str;
-        getline(ss, id_str, ',');
-        getline(ss, assigned_train_id_str, ',');
-        getline(ss, total_seats_str, ',');
-        getline(ss, seats_available_str, ',');
+    // Get the campaigns from the CSV file
+    vector<Campaign> campaigns = read_campaign_data_from_csv();
 
-        int id = stoi(id_str);
-        int assigned_train_id = stoi(assigned_train_id_str);
-        int total_seats = stoi(total_seats_str);
-        int seats_available = stoi(seats_available_str);
-
-        Campaign campaign = { id, assigned_train_id, total_seats, seats_available };
-
-        string seat_id_str, seat_row_str, seat_column_str, seat_status_str;
-        while (getline(ss, seat_id_str, ',')) {
-            getline(ss, seat_row_str, ',');
-            getline(ss, seat_column_str, ',');
-            getline(ss, seat_status_str, ',');
-
-            // Convert the string data to integers
-            int seat_id = stoi(seat_id_str);
-            int seat_row = stoi(seat_row_str);
-            int seat_column = stoi(seat_column_str);
-            int seat_status = stoi(seat_status_str);
-
-            // Create a new Seat and add it to the Campaign
-            Seat seat = { seat_id, seat_row, seat_column, seat_status };
-            campaign.seat.push_back(seat);
+    // Print the specified number of lines
+    int lines_printed = 0;
+    for (Campaign c : campaigns) {
+        // Print the campaign information
+        cout << "Campaign ID: " << c.id << endl;
+        cout << "Assigned Train ID: " << c.assigned_train_id << endl;
+        cout << "Total Seats: " << c.total_seats << endl;
+        cout << "Seats Available: " << c.seats_available << endl;
+        cout << "Seats: ";
+        for (Seat s : c.seat) {
+            cout << "[" << s.id << ", " << s.row << ", " << s.column << ", " << s.status << "] ";
         }
-    campaigns.push_back(campaign);
+        cout << endl;
+
+        // Increment the number of lines printed and check if we've reached the limit
+        lines_printed++;
+        if (lines_printed >= num_lines) {
+            break;
+        }
     }
 }
-*/
