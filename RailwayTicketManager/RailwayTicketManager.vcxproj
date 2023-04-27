@@ -31,6 +31,7 @@
   <ItemGroup>
     <ClInclude Include="campaign_data_handler.h" />
     <ClInclude Include="FileIO.h" />
+    <ClInclude Include="paths.h" />
     <ClInclude Include="Ticket_data_handler.h" />
     <ClInclude Include="trains_data_handler.h" />
     <ClInclude Include="utils.h" />

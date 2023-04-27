@@ -7,7 +7,7 @@
 #include <sstream>
 
 #include "FileIO.h"
-
+#include "paths.h"
 using namespace std;
 
 extern bool debug;

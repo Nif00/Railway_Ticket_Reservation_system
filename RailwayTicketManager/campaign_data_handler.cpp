@@ -1,14 +1,15 @@
 #include "utils.h"
 #include "campaign_data_handler.h"
+#include "trains_data_handler.h"
 
 vector<Campaign> read_campaign_data_from_csv() {
     // Open the file for reading
-    ifstream file("campaign_data.csv");
+    ifstream file(campaign_path);
 
     if (!file.good()) {
-        ofstream newfile("campaign_data.csv");
+        ofstream newfile(campaign_path);
         newfile.close();
-        file.open("campaign_data.csv");
+        file.open(campaign_path);
     }
 
     vector<Campaign> campaigns;
@@ -69,7 +70,7 @@ vector<Campaign> read_campaign_data_from_csv() {
 
 void save_campaign_data_to_csv(const Campaign& new_campaign) {
     // Open the file for appending
-    ofstream file("campaign_data.csv", ios::app);
+    ofstream file(campaign_path, ios::app);
 
     // Check if the file is open
     if (file.is_open()) {
@@ -98,12 +99,81 @@ void save_campaign_data_to_csv(const Campaign& new_campaign) {
     }
 }
 
-
-void print_csv_lines(int num_lines) {
-    if (!debug) {
-        cout << "only available in --debug mode";
-        return;
+int count_booked_seats(const vector<Campaign>& campaigns) {
+    int total_booked_seats = 0;
+    for (const Campaign& c : campaigns) {
+        for (const Seat& s : c.seat) {
+            if (s.status == 1) {
+                total_booked_seats++;
+            }
+        }
     }
+    return total_booked_seats;
+}
+
+Campaign find_campaign_by_id(int id) {
+    vector<Campaign> campaigns = read_campaign_data_from_csv();
+    for (const auto& c : campaigns) {
+        if (c.id == id) {
+            return c;
+        }
+    }
+    // If no campaign with the given ID is found, return a default campaign with ID -1
+    return Campaign{ -1, -1, -1, -1, vector<Seat>{} };
+}
+
+int read_last_id() {
+    vector<Campaign> campaigns = read_campaign_data_from_csv();
+
+    // Check if there are any campaigns in the file
+    if (campaigns.empty()) {
+        return 0;
+    }
+
+    // Get the last campaign in the vector
+    Campaign last_campaign = campaigns.back();
+
+    // Return the last campaign's id
+    return last_campaign.id;
+}
+
+void add_new_campaign() {
+    int train_id, total_seats, seats_available;
+    // Get the train id from user
+    train_id = ui_train_selector();
+    Train train;
+    // Find the train by id
+    train = find_train_by_id(train_id);
+    total_seats = (train.columns * train.rows) * train.num_car;
+    // We are initialising an empty train
+    seats_available = total_seats;
+
+    Campaign new_campaign;
+    new_campaign.id = read_last_id() + 1;
+    new_campaign.assigned_train_id = train.id;
+    new_campaign.total_seats = total_seats;
+    new_campaign.seats_available = seats_available;
+    vector<Seat> seats;
+    // Explanation: 
+    // This code handles all the necesary seat labeling, depending on the ammount of columns in the train
+    // it will create empty seats. It will also create ids based on their row and col. Example output:
+    // 1A,1B,1C,1D,2A,2B...
+    for (int row = 1; row <= train.rows; row++) {
+        for (char col = 'A'; col < ('A' + train.columns); col++) {
+            Seat seat;
+            seat.id = row * train.columns + (col - 'A') + 1;
+            seat.row = row;
+            seat.column = col;
+            seat.status = 1;
+            seats.push_back(seat);
+        }
+    }
+    new_campaign.seat = seats;
+    save_campaign_data_to_csv(new_campaign);
+}
+
+void dump_campaign_csv_data(int num_lines) {
+    if (!debug) return;
     // Get the campaigns from the CSV file
     vector<Campaign> campaigns = read_campaign_data_from_csv();
 
