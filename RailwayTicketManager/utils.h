@@ -5,4 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include "FileIO.h"
+#include <sstream>
+
 using namespace std;
+extern bool debug;

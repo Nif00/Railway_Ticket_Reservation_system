@@ -59,6 +59,9 @@
     <ClInclude Include="Ticket_data_handler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="paths.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
