@@ -3,7 +3,7 @@
 #include "trains_data_handler.h"
 #include "paths.h"
 
-vector<Passenger> read_Passenger_data_from_csv() {
+vector<Passenger> read_passenger_data_from_csv() {
     // Open the file for reading
     ifstream file(Passenger_path);
 
@@ -35,11 +35,6 @@ vector<Passenger> read_Passenger_data_from_csv() {
             ss.ignore();
             ss >> c.age;
             ss.ignore();
-
-            
-
-            
-            
 
             // Add the Passenger to the vector
             Passengers.push_back(c);
@@ -79,6 +74,16 @@ void save_Passenger_data_to_csv(const Passenger& new_Passenger) {
     }
 }
 
+Passenger find_passenger_by_id(int id) {
+    vector<Passenger> passengers = read_passenger_data_from_csv();
+    for (const auto& c : passengers) {
+        if (c.id == id) {
+            return c;
+        }
+    }
+    // If no passenger with the given ID is found, return a default campaign with ID -1
+    return Passenger{ -1, "", "", -1, -1};
+}
 
 int read_last_id() {
     vector<Passenger> Passengers = read_Passenger_data_from_csv();
