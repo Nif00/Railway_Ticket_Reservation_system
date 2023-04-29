@@ -32,5 +32,8 @@
 *.out
 *.app
 
+# tlog Files
+.tlog
+
 # Ignore the junk visual studio creates
 .vs/

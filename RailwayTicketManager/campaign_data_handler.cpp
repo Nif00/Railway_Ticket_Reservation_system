@@ -32,6 +32,10 @@ vector<Campaign> read_campaign_data_from_csv() {
             ss.ignore();
             ss >> c.seats_available;
             ss.ignore();
+            ss >> c.departure_time;
+            ss.ignore();
+            ss >> c.run_duration;
+            ss.ignore();
 
             // Read the seat data
             string seat_data;
@@ -40,7 +44,7 @@ vector<Campaign> read_campaign_data_from_csv() {
             vector<Seat> seats;
             while (getline(seat_ss, seat_data, ',')) {
                 stringstream seat_data_ss(seat_data);
-                Seat s;
+                Seat s{};
                 seat_data_ss >> s.id;
                 seat_data_ss.ignore();
                 seat_data_ss >> s.row;
@@ -78,7 +82,9 @@ void save_campaign_data_to_csv(const Campaign& new_campaign) {
         file << new_campaign.id << ","
             << new_campaign.assigned_train_id << ","
             << new_campaign.total_seats << ","
-            << new_campaign.seats_available << ",";
+            << new_campaign.seats_available << ","
+            << new_campaign.departure_time << ","
+            << new_campaign.run_duration << ",";
 
         // Write the seat data to the file
         for (const Seat& s : new_campaign.seat) {
@@ -99,9 +105,9 @@ void save_campaign_data_to_csv(const Campaign& new_campaign) {
     }
 }
 
-int count_booked_seats(const vector<Campaign>& campaigns) {
+int count_booked_seats(const vector<Campaign>& campaign) {
     int total_booked_seats = 0;
-    for (const Campaign& c : campaigns) {
+    for (const Campaign& c : campaign) {
         for (const Seat& s : c.seat) {
             if (s.status == 1) {
                 total_booked_seats++;
@@ -119,10 +125,11 @@ Campaign find_campaign_by_id(int id) {
         }
     }
     // If no campaign with the given ID is found, return a default campaign with ID -1
-    return Campaign{ -1, -1, -1, -1, vector<Seat>{} };
+    return Campaign{ -1, -1, -1, -1, "", "",vector<Seat>{}};
 }
 
-int read_last_id() {
+
+int read_last_campaign_id() {
     vector<Campaign> campaigns = read_campaign_data_from_csv();
 
     // Check if there are any campaigns in the file
@@ -148,11 +155,19 @@ void add_new_campaign() {
     // We are initialising an empty train
     seats_available = total_seats;
 
+    string departure_time, run_duration;
+    cout << "enter departure time: ";
+    cin >> departure_time;
+    cout << "enter run duration: ";
+    cin >> run_duration;
+
     Campaign new_campaign;
-    new_campaign.id = read_last_id() + 1;
+    new_campaign.id = read_last_campaign_id() + 1;
     new_campaign.assigned_train_id = train.id;
     new_campaign.total_seats = total_seats;
     new_campaign.seats_available = seats_available;
+    new_campaign.departure_time = departure_time;
+    new_campaign.run_duration = run_duration;
     vector<Seat> seats;
     // Explanation: 
     // This code handles all the necesary seat labeling, depending on the ammount of columns in the train
@@ -160,11 +175,11 @@ void add_new_campaign() {
     // 1A,1B,1C,1D,2A,2B...
     for (int row = 1; row <= train.rows; row++) {
         for (char col = 'A'; col < ('A' + train.columns); col++) {
-            Seat seat;
+            Seat seat{};
             seat.id = row * train.columns + (col - 'A') + 1;
             seat.row = row;
             seat.column = col;
-            seat.status = 1;
+            seat.status = 1; // 1 means empty and available seat
             seats.push_back(seat);
         }
     }
@@ -185,6 +200,8 @@ void dump_campaign_csv_data(int num_lines) {
         cout << "Assigned Train ID: " << c.assigned_train_id << endl;
         cout << "Total Seats: " << c.total_seats << endl;
         cout << "Seats Available: " << c.seats_available << endl;
+        cout << "Departure Time: " << c.departure_time << endl;
+        cout << "Run Duration: " << c.run_duration << endl;
         cout << "Seats: ";
         for (Seat s : c.seat) {
             cout << "[" << s.id << ", " << s.row << ", " << s.column << ", " << s.status << "] ";
