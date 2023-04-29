@@ -1,4 +1,4 @@
-﻿#include "utils.h"
+#include "utils.h"
 #include "user_interface_backend.h"
 
 int main(int argc, char* argv[]) {
