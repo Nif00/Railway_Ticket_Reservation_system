@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileIO.cpp" />
+    <ClCompile Include="Housekeeping.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="campaign_data_handler.cpp" />
     <ClCompile Include="Passenger_data_handler.cpp" />

@@ -39,6 +39,9 @@
     <ClCompile Include="Passenger_data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Housekeeping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="campaign_data_handler.h">
