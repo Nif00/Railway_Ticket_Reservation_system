@@ -1,26 +1,17 @@
 #include "utils.h"
 #include "campaign_data_handler.h"
-/* void write_campaign_data_file(Campaign to_write) {
-    string data_to_write = (to_string(to_write.id) + "," +
-        to_string(to_write.assigned_train_id) + "," +
-        to_string(to_write.total_seats) + "," +
-        to_string(to_write.seats_available) + "," +
-        to_string(to_write.seat.id) + "," +
-        to_string(to_write.seat.column) + "," +
-        to_string(to_write.seat.row) + "," +
-        to_string(to_write.seat.status) + "\n");
-    write_to_file("campaign_data.csv", data_to_write);
-}
+#include "trains_data_handler.h"
 
-vector<Campaign> read_from_csv() {
+vector<Campaign> read_campaign_data_from_csv() {
     // Open the file for reading
-    ifstream file("./workspace/campaign_data.csv");
+    ifstream file(campaign_path);
 
     if (!file.good()) {
-        ofstream newfile("./workspace/campaign.csv");
+        ofstream newfile(campaign_path);
         newfile.close();
-        file.open("./workspace/campaign.csv");
+        file.open(campaign_path);
     }
+
     vector<Campaign> campaigns;
 
     // Check if the file is open
@@ -43,17 +34,25 @@ vector<Campaign> read_from_csv() {
             ss.ignore();
 
             // Read the seat data
-            Seat s;
-            while (ss >> s.id) {
-                ss.ignore();
-                ss >> s.row;
-                ss.ignore();
-                ss >> s.column;
-                ss.ignore();
-                ss >> s.status;
-
-                c.seat.push_back(s);
+            string seat_data;
+            getline(ss, seat_data);
+            stringstream seat_ss(seat_data);
+            vector<Seat> seats;
+            while (getline(seat_ss, seat_data, ',')) {
+                stringstream seat_data_ss(seat_data);
+                Seat s;
+                seat_data_ss >> s.id;
+                seat_data_ss.ignore();
+                seat_data_ss >> s.row;
+                seat_data_ss.ignore();
+                seat_data_ss >> s.column;
+                seat_data_ss.ignore();
+                seat_data_ss >> s.status;
+                seats.push_back(s);
             }
+
+            // Assign the vector of seats to the campaign struct
+            c.seat = seats;
 
             // Add the campaign to the vector
             campaigns.push_back(c);
@@ -68,49 +67,134 @@ vector<Campaign> read_from_csv() {
 
     return campaigns;
 }
-/*
-string read_campaign_data_file() {
-    ifstream file("campaign.csv");
 
-    // Check if the file exists, if not create it
-    if (!file.good()) {
-        ofstream newfile("./workspace/campaign.csv");
-        newfile.close();
-        file.open("./workspace/campaign.csv");
-    }
-    vector<Campaign> campaigns;
-    string line;
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string id_str, assigned_train_id_str, total_seats_str, seats_available_str;
-        getline(ss, id_str, ',');
-        getline(ss, assigned_train_id_str, ',');
-        getline(ss, total_seats_str, ',');
-        getline(ss, seats_available_str, ',');
+void save_campaign_data_to_csv(const Campaign& new_campaign) {
+    // Open the file for appending
+    ofstream file(campaign_path, ios::app);
 
-        int id = stoi(id_str);
-        int assigned_train_id = stoi(assigned_train_id_str);
-        int total_seats = stoi(total_seats_str);
-        int seats_available = stoi(seats_available_str);
+    // Check if the file is open
+    if (file.is_open()) {
+        // Write the new campaign data to the file
+        file << new_campaign.id << ","
+            << new_campaign.assigned_train_id << ","
+            << new_campaign.total_seats << ","
+            << new_campaign.seats_available << ",";
 
-        Campaign campaign = { id, assigned_train_id, total_seats, seats_available };
-        string seat_id_str, seat_row_str, seat_column_str, seat_status_str;
-        while (getline(ss, seat_id_str, ',')) {
-            getline(ss, seat_row_str, ',');
-            getline(ss, seat_column_str, ',');
-            getline(ss, seat_status_str, ',');
-
-            // Convert the string data to integers
-            int seat_id = stoi(seat_id_str);
-            int seat_row = stoi(seat_row_str);
-            int seat_column = stoi(seat_column_str);
-            int seat_status = stoi(seat_status_str);
-
-            // Create a new Seat and add it to the Campaign
-            Seat seat = { seat_id, seat_row, seat_column, seat_status };
-            campaign.seat.push_back(seat);
+        // Write the seat data to the file
+        for (const Seat& s : new_campaign.seat) {
+            file << s.id << "|"
+                << s.row << "|"
+                << s.column << "|"
+                << s.status << ",";
         }
-    campaigns.push_back(campaign);
+
+        // Write the end-of-line character to the file
+        file << endl;
+
+        // Close the file
+        file.close();
+    }
+    else {
+        cout << "Error: Unable to open file for writing." << endl;
     }
 }
-*/
+
+int count_booked_seats(const vector<Campaign>& campaigns) {
+    int total_booked_seats = 0;
+    for (const Campaign& c : campaigns) {
+        for (const Seat& s : c.seat) {
+            if (s.status == 1) {
+                total_booked_seats++;
+            }
+        }
+    }
+    return total_booked_seats;
+}
+
+Campaign find_campaign_by_id(int id) {
+    vector<Campaign> campaigns = read_campaign_data_from_csv();
+    for (const auto& c : campaigns) {
+        if (c.id == id) {
+            return c;
+        }
+    }
+    // If no campaign with the given ID is found, return a default campaign with ID -1
+    return Campaign{ -1, -1, -1, -1, vector<Seat>{} };
+}
+
+int read_last_id() {
+    vector<Campaign> campaigns = read_campaign_data_from_csv();
+
+    // Check if there are any campaigns in the file
+    if (campaigns.empty()) {
+        return 0;
+    }
+
+    // Get the last campaign in the vector
+    Campaign last_campaign = campaigns.back();
+
+    // Return the last campaign's id
+    return last_campaign.id;
+}
+
+void add_new_campaign() {
+    int train_id, total_seats, seats_available;
+    // Get the train id from user
+    train_id = ui_train_selector();
+    Train train;
+    // Find the train by id
+    train = find_train_by_id(train_id);
+    total_seats = (train.columns * train.rows) * train.wagonNumber;
+    // We are initialising an empty train
+    seats_available = total_seats;
+
+    Campaign new_campaign;
+    new_campaign.id = read_last_id() + 1;
+    new_campaign.assigned_train_id = train.id;
+    new_campaign.total_seats = total_seats;
+    new_campaign.seats_available = seats_available;
+    vector<Seat> seats;
+    // Explanation: 
+    // This code handles all the necesary seat labeling, depending on the ammount of columns in the train
+    // it will create empty seats. It will also create ids based on their row and col. Example output:
+    // 1A,1B,1C,1D,2A,2B...
+    for (int row = 1; row <= train.rows; row++) {
+        for (char col = 'A'; col < ('A' + train.columns); col++) {
+            Seat seat;
+            seat.id = row * train.columns + (col - 'A') + 1;
+            seat.row = row;
+            seat.column = col;
+            seat.status = 1;
+            seats.push_back(seat);
+        }
+    }
+    new_campaign.seat = seats;
+    save_campaign_data_to_csv(new_campaign);
+}
+
+void dump_campaign_csv_data(int num_lines) {
+    if (!debug) return;
+    // Get the campaigns from the CSV file
+    vector<Campaign> campaigns = read_campaign_data_from_csv();
+
+    // Print the specified number of lines
+    int lines_printed = 0;
+    for (Campaign c : campaigns) {
+        // Print the campaign information
+        cout << "Campaign ID: " << c.id << endl;
+        cout << "Assigned Train ID: " << c.assigned_train_id << endl;
+        cout << "Total Seats: " << c.total_seats << endl;
+        cout << "Seats Available: " << c.seats_available << endl;
+        cout << "Seats: ";
+        for (Seat s : c.seat) {
+            cout << "[" << s.id << ", " << s.row << ", " << s.column << ", " << s.status << "] ";
+        }
+        cout << endl;
+
+        // Increment the number of lines printed and check if we've reached the limit
+        lines_printed++;
+        if (lines_printed >= num_lines) {
+            break;
+        }
+    }
+}

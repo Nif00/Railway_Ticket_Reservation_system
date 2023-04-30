@@ -1,16 +1,231 @@
 ﻿  FileIO.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
   Passenger_data_handler.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
   Passenger_data_handler.h
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\Passenger_data_handler.h(5,12): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\Passenger_data_handler.h(5,12): error C3646: 'name': bilinmeyen geçersiz kılma belirticisi
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\Passenger_data_handler.h(5,16): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\Passenger_data_handler.h(6,12): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\Passenger_data_handler.h(6,12): error C3646: 'surname': bilinmeyen geçersiz kılma belirticisi
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\Passenger_data_handler.h(6,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
   Ticket_data_handler.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
   campaign_data_handler.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(7,19): error C2065: 'campaign_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(10,26): error C2065: 'campaign_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(12,19): error C2065: 'campaign_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(19,16): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(19,20): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(19,16): error C2146: sözdizimi hatası: ';' eksik ('line' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(19,16): error C2065: 'line': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(21,30): error C2065: 'line': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(23,29): error C2065: 'line': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(37,20): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(37,29): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(37,20): error C2146: sözdizimi hatası: ';' eksik ('seat_data' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(37,20): error C2065: 'seat_data': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(38,25): error C2065: 'seat_data': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(39,34): error C2065: 'seat_data': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(41,37): error C2065: 'seat_data': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(42,43): error C2065: 'seat_data': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(73,19): error C2065: 'campaign_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(143,16): error C3861: 'ui_train_selector': tanımlayıcı bulunamadı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(146,13): error C3861: 'find_train_by_id': tanımlayıcı bulunamadı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\campaign_data_handler.cpp(147,56): error C2039: 'num_car': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
   main.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.h(3,8): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.h(3,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('read_user_data' tanımlayıcısından önce)
   trains_data_handler.cpp
-C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(6,37): warning C4244: 'bağımsız değişken': '_Rep' - 'unsigned int' dönüşümü; veri kaybı olabilir
-          with
-          [
-              _Rep=std::chrono::system_clock::rep
-          ]
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(68,19): error C2065: 'train_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(71,26): error C2065: 'train_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(73,19): error C2065: 'train_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(80,16): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(80,20): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(80,16): error C2146: sözdizimi hatası: ';' eksik ('line' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(80,16): error C2065: 'line': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(82,30): error C2065: 'line': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(84,29): error C2065: 'line': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(110,19): error C2065: 'train_path': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(160,16): error C3861: 'ui_train_selector': tanımlayıcı bulunamadı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(169,15): error C2039: 'total_seats': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(170,15): error C2039: 'seats_available': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(171,12): error C2065: 'Seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(171,5): error C2923: 'std::vector': 'Seat' geçerli bir şablon tür bağımsız değişkeni değil ('_Ty' parametresi için)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(171,12): message : 'Seat' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(171,5): error C2976: 'std::vector': çok az sayıda şablon bağımsız değişkeni var
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : 'std::vector' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(171,18): error C2133: 'seats': bilinmeyen boyut
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(171,18): error C2512: 'std::vector': kullanılabilir uygun varsayılan oluşturucu yok
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : 'std::vector' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(178,13): error C2065: 'Seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(178,18): error C2146: sözdizimi hatası: ';' eksik ('seat' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(178,18): error C2065: 'seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(179,13): error C2065: 'seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(180,13): error C2065: 'seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(181,13): error C2065: 'seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(182,13): error C2065: 'seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(183,29): error C2065: 'seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(186,15): error C2039: 'seat': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(200,44): error C2039: 'assigned_train_id': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(201,38): error C2039: 'total_seats': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(202,42): error C2039: 'seats_available': bir 'Train' üyesi değil
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.h(3,8): message : 'Train' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,14): error C2065: 'Seat': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,19): error C2146: sözdizimi hatası: ';' eksik ('s' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,21): error C2143: sözdizimi hatası: ';' eksik (':' öncesinde)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,21): error C2143: sözdizimi hatası: ')' eksik (':' öncesinde)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,21): error C2059: sözdizimi hatası: ':'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,29): error C2059: sözdizimi hatası: ')'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(204,31): error C2143: sözdizimi hatası: ';' eksik ('{' öncesinde)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(205,28): error C2065: 's': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(205,44): error C2065: 's': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(205,61): error C2065: 's': bildirimi yapılmamış tanımlayıcı
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\trains_data_handler.cpp(205,81): error C2065: 's': bildirimi yapılmamış tanımlayıcı
   user_interface_backend.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,8): error C2146: sözdizimi hatası: ';' eksik ('campaign_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,19): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(4,8): error C2146: sözdizimi hatası: ';' eksik ('train_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,23): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(5,8): error C2146: sözdizimi hatası: ';' eksik ('passenger_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,20): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(6,8): error C2146: sözdizimi hatası: ';' eksik ('ticket_path' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(6,8): error C2872: 'string': belirsiz simge
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'int string' olabilirdi
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,19): message : veya       'std::string'
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(6,22): error C4430: tür belirticisi eksik - int varsayıldı. Not: C++ varsayılan int desteği içermez
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(6,1): error C2086: 'int string': yeniden tanımlama
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\paths.h(3,1): message : 'string' bildirimine bakın
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(6,8): error C2146: sözdizimi hatası: ';' eksik ('read_user_data' tanımlayıcısından önce)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(6,47): error C2143: sözdizimi hatası: ';' eksik ('{' öncesinde)
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(6,47): error C2447: '{': işlev üstbilgisi eksik (eski tarzda biçimsel liste mi?)
   Kod Üretiliyor...
-x64\Debug\Passenger_data_handler.obj : warning LNK4042: Nesne birden çok kez belirtildi; fazla olanlar yoksayıldı
-  RailwayTicketManager.vcxproj -> C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe
