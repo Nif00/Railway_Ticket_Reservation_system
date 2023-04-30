@@ -27,6 +27,7 @@
     <ClCompile Include="Ticket_data_handler.cpp" />
     <ClCompile Include="trains_data_handler.cpp" />
     <ClCompile Include="user_interface_backend.cpp" />
+    <ClCompile Include="user_interface_frontend.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="campaign_data_handler.h" />
