@@ -1,7 +1,6 @@
 #include "log.h"
 
-
-void Log::add_log(const string& message) {
+void add_log(const string& message) {
 	if (logging_disabled) return;
 
 	// Get the current time
@@ -9,8 +8,9 @@ void Log::add_log(const string& message) {
 	time_t current_time = chrono::system_clock::to_time_t(now);
 
 	// Convert the time to a string
-	string time_string = ctime(&current_time);
-	time_string.erase(time_string.length() - 1);
+	char time_string[26];
+	ctime_s(time_string, sizeof time_string, &current_time);
+	time_string[strlen(time_string) - 1] = '\0';
 
 	// Write the message to the log file
 	ofstream log_file("log.txt", ios_base::app);

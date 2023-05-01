@@ -1,5 +1,8 @@
 #pragma once
 #include "utils.h"
+
+extern string train_path;
+
 struct Train {
     int id;
     string name;

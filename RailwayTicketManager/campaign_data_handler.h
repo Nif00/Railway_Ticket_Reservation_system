@@ -1,5 +1,8 @@
 #pragma once
 #include "utils.h"
+
+extern string campaign_path;
+
 struct Seat {
     int id;
     int column;
@@ -18,7 +21,7 @@ struct Campaign {
     vector<Seat> seat;
 };
 
-vector<Campaign> read_campaign_data_from_csv();
+vector<Campaign> read_campaign_data_from_file();
 void save_campaign_data_to_csv(const Campaign& new_campaign);
 int count_booked_seats(const vector<Campaign>& campaigns);
 Campaign find_campaign_by_id(long id);

@@ -1,7 +1,7 @@
-#include "utils.h"
 #include "Ticket_data_handler.h"
+#include "log.h"
+#include "campaign_data_handler.h"
 #include "Passenger_data_handler.h"
-
 
 vector<Ticket> read_ticket_data_from_csv() {
 	// Open the file for reading
@@ -70,7 +70,7 @@ void save_ticket_data_to_csv(const Ticket& new_ticket) {
 	}
 	else {
 		cout << "Error: Unable to open file for writing." << endl;
-		Log::add_log("[Save Ticket Data] Error: Unable to open file for writing.");
+		add_log("[Save Ticket Data] Error: Unable to open file for writing.");
 	}
 }
 
@@ -108,10 +108,11 @@ long read_last_ticket_id() {
 void add_new_ticket() {
 	int type, assigned_campaign_id, assigned_passenger_id, assigned_seat_id, new_ticket_id;
 	// Get the train id from user
-	assigned_campaign_id = ui_campaign_selector();
-	assigned_passenger_id = ui_passenger_selector();
-
-	Passenger passenger = find_passenger_by_id(assigned_passenger_id);
+	vector<Seat> seat{};
+	assigned_campaign_id = 1;//ui_campaign_selector();
+	assigned_passenger_id = 1;// ui_passenger_selector();
+	assigned_seat_id = 1;//ui_seat_selector(assigned_campaign_id);
+	Passenger passenger = { 1,"sir deez","nuts",1111111,69 };//find_passenger_by_id(assigned_passenger_id);
 
 	if (passenger.age <= 18) type = 2;
 	if (passenger.age > 65) type = 3;
@@ -124,11 +125,10 @@ void add_new_ticket() {
 	new_ticket.assigned_passenger_id = assigned_passenger_id;
 	new_ticket.assigned_seat_id = assigned_seat_id;
 	save_ticket_data_to_csv(new_ticket);
-	Log::add_log("[Add Ticket] " + to_string(new_ticket_id) + ", Type: " + to_string(type) + ", Campaign ID: " + to_string(assigned_campaign_id) + ", Passenger ID: " + to_string(assigned_passenger_id) + ", Seat ID: " + to_string(assigned_seat_id));
+	add_log("[Add Ticket] " + to_string(new_ticket_id) + ", Type: " + to_string(type) + ", Campaign ID: " + to_string(assigned_campaign_id) + ", Passenger ID: " + to_string(assigned_passenger_id) + ", Seat ID: " + to_string(assigned_seat_id));
 }
 
 void dump_ticket_csv_data(long num_lines) {
-	if (!debug) return;
 	// Get the tickets from the CSV file
 	vector<Ticket> tickets = read_ticket_data_from_csv();
 

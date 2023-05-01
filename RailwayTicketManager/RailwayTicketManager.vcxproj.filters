@@ -36,9 +36,6 @@
     <ClCompile Include="Passenger_data_handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Housekeeping.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,9 +57,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ticket_data_handler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="paths.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

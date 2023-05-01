@@ -1,7 +1,4 @@
-#include "utils.h"
 #include "Passenger_data_handler.h"
-#include "trains_data_handler.h"
-#include "paths.h"
 
 vector<Passenger> read_passenger_data_from_csv() {
 	// Open the file for reading
@@ -45,7 +42,7 @@ vector<Passenger> read_passenger_data_from_csv() {
 	}
 	else {
 		cout << "Error: Unable to open file for reading." << endl;
-		Log::add_log("[Save Passenger Data] Error: Unable to open file for writing.");
+		add_log("[Save Passenger Data] Error: Unable to open file for writing.");
 	}
 
 	return Passengers;
@@ -89,7 +86,6 @@ Passenger find_passenger_by_id(long id) {
 void add_new_passenger() {
 	long new_passenger_id{ -1 }, tckn{ -1 }, age{ -1 };
 	string name, surname;
-	// Get the train id from user
 
 	new_passenger_id = read_last_passenger_id() + 1;
 
@@ -110,7 +106,7 @@ void add_new_passenger() {
 	new_passenger.age = age;
 	save_passenger_data_to_csv(new_passenger);
 
-	Log::add_log("[Add Passenger] ID: " + to_string(new_passenger_id) + ", Name: " + name + ", Surname: " + surname + ", TCKN: " + to_string(tckn) + ", Age: " + to_string(age));
+	add_log("[Add Passenger] ID: " + to_string(new_passenger_id) + ", Name: " + name + ", Surname: " + surname + ", TCKN: " + to_string(tckn) + ", Age: " + to_string(age));
 }
 
 long read_last_passenger_id() {
@@ -129,7 +125,6 @@ long read_last_passenger_id() {
 }
 
 void dump_passenger_csv_data(int num_lines) {
-	if (!debug) return;
 	// Get the Passengers from the CSV file
 	vector<Passenger> Passengers = read_passenger_data_from_csv();
 

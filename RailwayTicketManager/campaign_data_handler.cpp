@@ -1,8 +1,8 @@
-#include "utils.h"
 #include "campaign_data_handler.h"
+#include "log.h"
 #include "trains_data_handler.h"
 
-vector<Campaign> read_campaign_data_from_csv() {
+vector<Campaign> read_campaign_data_from_file(){
     // Open the file for reading
     ifstream file(campaign_path);
 
@@ -23,7 +23,7 @@ vector<Campaign> read_campaign_data_from_csv() {
             stringstream ss(line);
 
             // Parse the CSV data into a Campaign struct
-            Campaign c;
+            Campaign c{};
             ss >> c.id;
             ss.ignore();
             ss >> c.assigned_train_id;
@@ -75,7 +75,7 @@ vector<Campaign> read_campaign_data_from_csv() {
     }
     else {
         cout << "Error: Unable to open file for reading." << endl;
-        Log::add_log("[Save Campaign Data] Error: Unable to open file for writing.");
+        add_log("[Save Campaign Data] Error: Unable to open file for writing.");
     }
 
     return campaigns;
@@ -127,7 +127,7 @@ int count_booked_seats(const vector<Campaign>& campaign) {
 }
 
 Campaign find_campaign_by_id(long id) {
-    vector<Campaign> campaigns = read_campaign_data_from_csv();
+    vector<Campaign> campaigns = read_campaign_data_from_file();
     for (const auto& c : campaigns) {
         if (c.id == id) {
             return c;
@@ -149,7 +149,7 @@ Seat find_seat_by_id(long campaign_id, int seat_id) {
 }
 
 long read_last_campaign_id() {
-    vector<Campaign> campaigns = read_campaign_data_from_csv();
+    vector<Campaign> campaigns = read_campaign_data_from_file();
 
     // Check if there are any campaigns in the file
     if (campaigns.empty()) {
@@ -166,10 +166,10 @@ long read_last_campaign_id() {
 void add_new_campaign() {
     long train_id, total_seats, seats_available,new_campaign_id;
     // Get the train id from user
-    train_id = ui_train_selector();
+    train_id = 1;//ui_train_selector();
     Train train;
     // Find the train by id
-    train = find_train_by_id(train_id);
+    train = Train{1,"mogus","mogus ltd.",4,5,3};//find_train_by_id(train_id);
     total_seats = (train.columns * train.rows) * train.num_car;
     // We are initialising an empty train
     seats_available = total_seats;
@@ -212,14 +212,13 @@ void add_new_campaign() {
     save_campaign_data_to_csv(new_campaign);
 
     // Log the new campaign information
-    Log::add_log("[Add Campaign] ID: " + to_string(new_campaign_id) + ", Assigned Train ID: " + to_string(train_id) + ", Total Seats: " + to_string(total_seats) + ", Seats Available: " + to_string(seats_available) + ", Departure Time: " + departure_time + ", Run Duration: " + run_duration + ", From: " + from + ", To: " + to);
+    add_log("[Add Campaign] ID: " + to_string(new_campaign_id) + ", Assigned Train ID: " + to_string(train_id) + ", Total Seats: " + to_string(total_seats) + ", Seats Available: " + to_string(seats_available) + ", Departure Time: " + departure_time + ", Run Duration: " + run_duration + ", From: " + from + ", To: " + to);
 }
 
 
 void dump_campaign_csv_data(long num_lines) {
-    if (!debug) return;
     // Get the campaigns from the CSV file
-    vector<Campaign> campaigns = read_campaign_data_from_csv();
+    vector<Campaign> campaigns = read_campaign_data_from_file();
 
     // Print the specified number of lines
     long lines_printed = 0;

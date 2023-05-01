@@ -20,7 +20,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Housekeeping.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="campaign_data_handler.cpp" />
     <ClCompile Include="Passenger_data_handler.cpp" />
@@ -33,7 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="campaign_data_handler.h" />
-    <ClInclude Include="paths.h" />
     <ClInclude Include="Ticket_data_handler.h" />
     <ClInclude Include="trains_data_handler.h" />
     <ClInclude Include="utils.h" />

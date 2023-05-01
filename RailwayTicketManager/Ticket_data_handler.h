@@ -1,5 +1,8 @@
 #pragma once
 #include "utils.h"
+
+extern string ticket_path;
+
 struct Ticket {
     long id;
     int type; //1 Normal, 2 Student, 3 Free

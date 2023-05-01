@@ -1,12 +1,16 @@
 #pragma once
 #include "utils.h"
+
+extern string passenger_path;
+
 struct Passenger {
-    long id;
-    string name;
-    string surname;
-    long tckn;
-    int age;
+	long id;
+	string name;
+	string surname;
+	long tckn;
+	int age;
 };
+
 vector<Passenger> read_passenger_data_from_csv();
 void save_passenger_data_to_csv(const Passenger& new_Passenger);
 Passenger find_passenger_by_id(long id);
