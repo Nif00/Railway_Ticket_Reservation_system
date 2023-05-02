@@ -10,6 +10,6 @@
 #include <conio.h>
 #include <thread>
 
-#include "log.h"
+extern bool logging_disabled;
 
-using namespace std;
+void add_log(const std::string& message);
