@@ -41,7 +41,7 @@ vector<Passenger> read_passenger_data_from_csv() {
 		file.close();
 	}
 	else {
-		cout << "Error: Unable to open file for reading." << endl;
+		std::cout << "Error: Unable to open file for reading." << endl;
 		add_log("[Save Passenger Data] Error: Unable to open file for writing.");
 	}
 
@@ -68,15 +68,28 @@ void save_passenger_data_to_csv(const Passenger& new_Passenger) {
 		file.close();
 	}
 	else {
-		cout << "Error: Unable to open file for writing." << endl;
+		std::cout << "Error: Unable to open file for writing." << endl;
 	}
 }
 
 Passenger find_passenger_by_id(long id) {
 	vector<Passenger> passengers = read_passenger_data_from_csv();
-	for (const auto& c : passengers) {
-		if (c.id == id) {
-			return c;
+	for (const auto& p : passengers) {
+		if (p.id == id) {
+			return p;
+		}
+	}
+	// If no passenger with the given ID is found, return a default campaign with ID -1
+	return Passenger{ -1, "", "", -1, -1 };
+}
+
+Passenger find_passenger_by_name(string name, string surname) {
+	vector<Passenger> passengers = read_passenger_data_from_csv();
+	for (const auto& p : passengers) {
+		if (p.name == name) {
+			if (p.surname == surname) {
+				return p;
+			}
 		}
 	}
 	// If no passenger with the given ID is found, return a default campaign with ID -1
@@ -89,13 +102,13 @@ void add_new_passenger() {
 
 	new_passenger_id = read_last_passenger_id() + 1;
 
-	cout << "Enter Name: ";
+	std::cout << "Enter Name: ";
 	cin >> name;
-	cout << "Enter Surname: ";
+	std::cout << "Enter Surname: ";
 	cin >> surname;
-	cout << "Enter TCKN: ";
+	std::cout << "Enter TCKN: ";
 	cin >> tckn;
-	cout << "Enter Age: ";
+	std::cout << "Enter Age: ";
 	cin >> age;
 
 	Passenger new_passenger{};
@@ -132,13 +145,13 @@ void dump_passenger_csv_data(int num_lines) {
 	int lines_printed = 0;
 	for (Passenger c : Passengers) {
 		// Print the Passenger information
-		cout << "Passenger ID: " << c.id << endl;
-		cout << "Passenger Name: " << c.name << endl;
-		cout << "Passenger Surname: " << c.surname << endl;
-		cout << "Passenger TC NO:: " << c.tckn << endl;
-		cout << "Passenger Age: " << c.age << endl;
+		std::cout << "Passenger ID: " << c.id << endl;
+		std::cout << "Passenger Name: " << c.name << endl;
+		std::cout << "Passenger Surname: " << c.surname << endl;
+		std::cout << "Passenger TC NO:: " << c.tckn << endl;
+		std::cout << "Passenger Age: " << c.age << endl;
 
-		cout << endl;
+		std::cout << endl;
 
 		// Increment the number of lines printed and check if we've reached the limit
 		lines_printed++;

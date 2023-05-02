@@ -7,6 +7,8 @@
 #include <sstream>
 #include <chrono>
 #include <ctime>
+#include <conio.h>
+#include <thread>
 
 #include "log.h"
 

@@ -5,10 +5,10 @@
 #include "campaign_data_handler.h"
 #include "trains_data_handler.h"
 
-string train_path = "/workspace/train_data.csv";
-string ticket_path = "/workspace/ticket_data.csv";
-string campaign_path = "/workspace/campaign_data.csv";
-string passenger_path = "/workspace/passenger_data.csv";
+string train_path = "train_data.csv";
+string ticket_path = "ticket_data.csv";
+string campaign_path = "campaign_data.csv";
+string passenger_path = "passenger_data.csv";
 
 bool debug = false;
 bool admin = false;

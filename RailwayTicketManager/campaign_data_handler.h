@@ -22,9 +22,10 @@ struct Campaign {
 };
 
 vector<Campaign> read_campaign_data_from_file();
-void save_campaign_data_to_csv(const Campaign& new_campaign);
+vector<Campaign> campaigns_by_train(long train_id);
 int count_booked_seats(const vector<Campaign>& campaigns);
 Campaign find_campaign_by_id(long id);
 long read_last_campaign_id();
 void add_new_campaign();
 void dump_campaign_csv_data(long num_lines);
+void update_seat(long seat_id, long campaign_id, int status);

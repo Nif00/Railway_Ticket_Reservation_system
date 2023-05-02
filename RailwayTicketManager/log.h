@@ -7,9 +7,9 @@
 #include <sstream>
 #include <chrono>
 #include <ctime>
-
-using namespace std;
+#include <conio.h>
+#include <thread>
 
 extern bool logging_disabled;
 
-void add_log(const string& message);
+void add_log(const std::string& message);

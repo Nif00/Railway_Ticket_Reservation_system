@@ -43,7 +43,7 @@ vector<Ticket> read_ticket_data_from_csv() {
 		file.close();
 	}
 	else {
-		cout << "Error: Unable to open file for reading." << endl;
+		std::cout << "Error: Unable to open file for reading." << endl;
 	}
 
 	return tickets;
@@ -69,7 +69,7 @@ void save_ticket_data_to_csv(const Ticket& new_ticket) {
 		file.close();
 	}
 	else {
-		cout << "Error: Unable to open file for writing." << endl;
+		std::cout << "Error: Unable to open file for writing." << endl;
 		add_log("[Save Ticket Data] Error: Unable to open file for writing.");
 	}
 }
@@ -136,10 +136,10 @@ void dump_ticket_csv_data(long num_lines) {
 	int lines_printed = 0;
 	for (Ticket t : tickets) {
 		// Print the ticket information
-		cout << "Ticket ID: " << t.id << endl;
-		cout << "Type: " << t.type << endl;
-		cout << "Assigned Campaign ID: " << t.assigned_campaign_id << endl;
-		cout << "Assigned Passenger ID: " << t.assigned_passenger_id << endl;
+		std::cout << "Ticket ID: " << t.id << endl;
+		std::cout << "Type: " << t.type << endl;
+		std::cout << "Assigned Campaign ID: " << t.assigned_campaign_id << endl;
+		std::cout << "Assigned Passenger ID: " << t.assigned_passenger_id << endl;
 
 		// Increment the number of lines printed and check if we've reached the limit
 		lines_printed++;
