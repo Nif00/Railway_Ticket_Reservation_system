@@ -23,22 +23,22 @@ vector<Campaign> read_campaign_data_from_file() {
 			stringstream ss(line);
 
 			// Parse the CSV data into a Campaign struct
-			Campaign c{};
-			ss >> c.id;
+			Campaign current{};
+			ss >> current.id;
 			ss.ignore();
-			ss >> c.assigned_train_id;
+			ss >> current.assigned_train_id;
 			ss.ignore();
-			ss >> c.total_seats;
+			ss >> current.total_seats;
 			ss.ignore();
-			ss >> c.seats_available;
+			ss >> current.seats_available;
 			ss.ignore();
-			ss >> c.departure_time;
+			ss >> current.departure_time;
 			ss.ignore();
-			ss >> c.run_duration;
+			ss >> current.run_duration;
 			ss.ignore();
-			ss >> c.from;
+			ss >> current.from;
 			ss.ignore();
-			ss >> c.to;
+			ss >> current.to;
 			ss.ignore();
 
 			// Read the seat data
@@ -48,34 +48,33 @@ vector<Campaign> read_campaign_data_from_file() {
 			vector<Seat> seats;
 			while (getline(seat_ss, seat_data, ',')) {
 				stringstream seat_data_ss(seat_data);
-				Seat s{};
-				seat_data_ss >> s.id;
+				Seat current_seat{};
+				seat_data_ss >> current_seat.id;
 				seat_data_ss.ignore();
 
 				// Convert the column letter to a number
 				char col_letter;
 				seat_data_ss >> col_letter;
-				s.column = col_letter - 'A' + 1;
+				current_seat.column = col_letter - 'A' + 1;
 
-				seat_data_ss >> s.row;
+				seat_data_ss >> current_seat.row;
 				seat_data_ss.ignore();
-				seat_data_ss >> s.status;
-				seats.push_back(s);
+				seat_data_ss >> current_seat.status;
+				seats.push_back(current_seat);
 			}
 
 			// Assign the vector of seats to the campaign struct
-			c.seat = seats;
+			current.seat = seats;
 
 			// Add the campaign to the vector
-			campaigns.push_back(c);
+			campaigns.push_back(current);
 		}
 
 		// Close the file
 		file.close();
 	}
 	else {
-		std::cout << "Error: Unable to open file for reading." << endl;
-		add_log("[Save Campaign Data] Error: Unable to open file for writing.");
+		add_log("[Read Campaign Data] Error: Unable to open file for writing.");
 	}
 
 	return campaigns;
@@ -128,8 +127,8 @@ void save_campaign_data_to_csv(const Campaign& new_campaign) {
 	}
 }
 
-int count_booked_seats(const vector<Campaign>& campaign) {
-	int total_booked_seats = 0;
+long count_booked_seats(const vector<Campaign>& campaign) {
+	long total_booked_seats = 0;
 	for (const Campaign& c : campaign) {
 		for (const Seat& s : c.seat) {
 			if (s.status == 1) {
@@ -151,7 +150,7 @@ Campaign find_campaign_by_id(long id) {
 	return Campaign{ -1, -1, -1, -1, "", "", "", "",vector<Seat>{} };
 }
 
-Seat find_seat_by_id(long campaign_id, int seat_id) {
+Seat find_seat_by_id(long campaign_id, long seat_id) {
 	Campaign campaign = find_campaign_by_id(campaign_id);
 	vector<Seat> seats;
 	for (const auto& s : seats) {
@@ -162,7 +161,7 @@ Seat find_seat_by_id(long campaign_id, int seat_id) {
 	return Seat{ -1, -1, -1, -1 };
 }
 
-void update_seat(long seat_id, long campaign_id, int status) {
+void update_seat(long seat_id, long campaign_id, long status) {
 	Seat seat = find_seat_by_id(campaign_id, seat_id);
 	vector<Campaign> campaigns = read_campaign_data_from_file();
 	for (auto& c : campaigns) {
@@ -203,16 +202,16 @@ void dump_campaign_csv_data(long num_lines) {
 
 	// Print the specified number of lines
 	long lines_printed = 0;
-	for (Campaign c : campaigns) {
+	for (Campaign current : campaigns) {
 		// Print the campaign information
-		std::cout << "Campaign ID: " << c.id << endl;
-		std::cout << "Assigned Train ID: " << c.assigned_train_id << endl;
-		std::cout << "Total Seats: " << c.total_seats << endl;
-		std::cout << "Seats Available: " << c.seats_available << endl;
-		std::cout << "Departure Time: " << c.departure_time << endl;
-		std::cout << "Run Duration: " << c.run_duration << endl;
+		std::cout << "Campaign ID: " << current.id << endl;
+		std::cout << "Assigned Train ID: " << current.assigned_train_id << endl;
+		std::cout << "Total Seats: " << current.total_seats << endl;
+		std::cout << "Seats Available: " << current.seats_available << endl;
+		std::cout << "Departure Time: " << current.departure_time << endl;
+		std::cout << "Run Duration: " << current.run_duration << endl;
 		std::cout << "Seats: ";
-		for (Seat s : c.seat) {
+		for (Seat s : current.seat) {
 			std::cout << "[" << s.id << ", " << s.row << ", " << s.column << ", " << s.status << "] ";
 		}
 		std::cout << endl;

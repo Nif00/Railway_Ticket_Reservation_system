@@ -137,12 +137,12 @@ long read_last_passenger_id() {
 	return last_Passenger.id;
 }
 
-void dump_passenger_csv_data(int num_lines) {
+void dump_passenger_csv_data(long num_lines) {
 	// Get the Passengers from the CSV file
 	vector<Passenger> Passengers = read_passenger_data_from_csv();
 
 	// Print the specified number of lines
-	int lines_printed = 0;
+	long lines_printed = 0;
 	for (Passenger c : Passengers) {
 		// Print the Passenger information
 		std::cout << "Passenger ID: " << c.id << endl;

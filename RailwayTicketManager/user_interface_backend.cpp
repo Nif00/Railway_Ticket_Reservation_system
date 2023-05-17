@@ -1,5 +1,6 @@
-#include "user_interface_backend.h"
 #include <Windows.h>
+#include "user_interface_backend.h"
+
 
 void color(int color)
 {
@@ -16,7 +17,7 @@ void gotoxy(int x, int y)
 
 long ui_campaign_selector(vector<Campaign> campaigns)
 {
-	int Set[] = { 7,7,7 };
+	int Set[] = { 7,7,7 }; //7 is 
 	long counter = 2;
 	char key;
 	std::cout << "Please choose a campaign" << endl;
@@ -56,7 +57,7 @@ long ui_train_selector(vector<Train> trains)
 	int Set[] = { 7,7,7 };
 	long counter = 2;
 	char key;
-	std::cout << "Please choose a campaign" << endl;
+	std::cout << "Please choose a train: \n" << endl;
 	for (long i = 0;;)
 	{
 		for (Train t : trains)
@@ -88,6 +89,44 @@ long ui_train_selector(vector<Train> trains)
 	}
 }
 
+
+long ui_ticket_selector(vector<Ticket> tickets)
+{
+	int Set[] = { 7,7,7 };
+	long counter = 2;
+	char key;
+	std::cout << "Please choose a train: \n" << endl;
+	for (long i = 0;;)
+	{
+		for (Ticket t : tickets)
+		{
+			gotoxy(10, t.id + 5);
+			color(Set[t.id == counter]);
+			std::cout << t.id;
+		}
+		key = _getch();
+		if (key == 72 && (counter >= 1 && counter <= tickets.size()))
+		{
+			counter--;
+		}
+		if (key == 80 && (counter >= 1 && counter <= tickets.size()))
+		{
+			counter++;
+
+		}
+		if (key == '\r')
+		{
+			for (Ticket t : tickets)
+			{
+				if (counter == t.id)
+				{
+					return t.id;
+				}
+			}
+		}
+	}
+}
+
 long ui_passenger_selector()
 {
 	long passenger_id;
@@ -103,21 +142,6 @@ long ui_passenger_selector()
 		return selected_passenger.id;
 	}
 	else return passenger_id;
-}
-
-void Loading_FX() {
-	std::cout << "\r" << string(10000, ' ') << "\r" << flush;
-
-	for (int j = 0; j < 1; j++) {
-		for (int i = 0; i < 15; i++)
-		{
-			chrono::milliseconds pauseTime(30);
-			this_thread::sleep_for(pauseTime);
-			std::cout << "\xdb";
-		}
-		std::cout << "\r";
-	}
-	std::cout << "\r" << string(10000, ' ') << "\r" << flush;
 }
 
 void display_seat() {
@@ -221,7 +245,6 @@ void selectSeat() {
 				display_seat();
 				std::cout << endl << endl << h << endl << endl << "Please enter the seat that you wish to buy (e.g. A01)" << endl;
 				cin >> inpN >> inpS;
-				Loading_FX();
 				switch (inpN)
 				{
 				case 'A':
@@ -293,7 +316,6 @@ void selectSeat() {
 				std::cout << "Your seat will be displayed as XXXX" << endl;
 				chrono::seconds pauseTime(3);
 				this_thread::sleep_for(pauseTime);
-				Loading_FX();
 				for (Campaign c : campaigns)
 				{
 
@@ -378,7 +400,6 @@ void selectSeat() {
 					}
 				}
 			}
-			Loading_FX();
 			std::cout << endl << h << endl << endl << "Your seat has been successfully reserved" << endl;
 			valid_seat_request = true;
 		}
@@ -398,7 +419,6 @@ void display_seats(Campaign campaign) {
 
 void display_campaign(Campaign c) {
 	system("cls");
-	long lines_printed = 0;
 	std::cout << "Campaign ID: " << c.id << endl;
 	std::cout << "Assigned Train ID: " << c.assigned_train_id << endl;
 	std::cout << "Total Seats: " << c.total_seats << endl;
@@ -409,6 +429,56 @@ void display_campaign(Campaign c) {
 	for (Seat s : c.seat) {
 		std::cout << "[" << s.id << ", " << s.row << ", " << s.column << ", " << s.status << "] ";
 	}
+	std::cout << endl << "Press any key to return to main menu";
+	_getch();
+	return;
+}
+
+void display_train(Train t) {
+	system("cls");
+	std::cout << "Train ID: " << t.id << endl;
+	std::cout << "No. of Wagons: " << t.wagonNumber << endl;
+	std::cout << "Total seats: " << t.rows * t.columns * t.wagonNumber << endl;
+	std::cout << "Rows: " << t.rows << endl;
+	std::cout << endl << "Press any key to return to main menu";
+	_getch();
+	return;
+}
+
+void display_ticket(Ticket t) {
+	string type;
+	switch (t.type) {
+	case 1:
+		type = "Standart";
+		break;
+	case 2:
+		type = "Student";
+		break;
+	case 3:
+		type = "Free";
+		break;
+	default:
+		add_log("[Display Ticket] incorrect ticket type passed");
+		type = "Error";
+		break;
+	}
+	system("cls");
+	std::cout << "Ticket ID: " << t.id << endl;
+	std::cout << "Type: " << type << endl;
+	std::cout << "Assigned Campaign:  " << t.assigned_campaign_id << endl;
+	std::cout << "Assigned Passenger:  " << t.assigned_passenger_id << endl;
+	std::cout << "Assigned Seat:  " << t.assigned_seat_id << endl;
+	std::cout << endl << "Press any key to return to main menu";
+	_getch();
+	return;
+}
+
+void display_passenger(Passenger p) {
+	system("cls");
+	std::cout << "Passenger ID: " << p.id << endl;
+	std::cout << "Passenger name and surname: " << p.name + " " + p.surname << endl;
+	std::cout << "Passenger TCKN:  " << p.tckn << endl;
+	std::cout << "Passenger Age:  " << p.age << endl;
 	std::cout << endl << "Press any key to return to main menu";
 	_getch();
 	return;
@@ -561,9 +631,101 @@ void ui_campaign_menu() {
 	return;
 }
 
+void view_train_by_id() {
+	long id = ui_train_selector(read_train_data_from_csv());
+	display_train(find_train_by_id(id));
+}
+
+void view_train_by_campaign_id() {
+	long id = find_campaign_by_id(ui_campaign_selector(read_campaign_data_from_file())).assigned_train_id;
+	display_train(find_train_by_id(id));
+}
+
+void view_train_by_ticket_id() {
+	long id = ui_ticket_selector(read_ticket_data_from_csv());
+
+}
+
+void ui_train_menu() {
+	int Set[] = { 7,7,7,7 };   //Default colors
+	int counter = 3;
+	char key;
+
+	for (int i = 0;;)
+	{
+		gotoxy(10, 5);
+		color(Set[0]);
+		std::cout << "1. View train by id";
+
+		gotoxy(10, 6);
+		color(Set[1]);
+		std::cout << "2. View train by campaign id";
+
+		gotoxy(10, 7);
+		color(Set[2]);
+		std::cout << "3. View train by ticket id";
+
+		gotoxy(10, 8);
+		color(Set[3]);
+		std::cout << "4. Add a new train";
+
+		key = _getch();
+
+		if (key == 72 && (counter >= 2 && counter <= 4))   //72 = up arrow key
+		{
+			counter--;
+		}
+		if (key == 80 && (counter >= 1 && counter <= 3))   //80 = down arrow key
+		{
+			counter++;
+		}
+		if (key == '\r')   //carriage return = enter key
+		{
+			if (counter == 1)
+			{
+				view_campaign_by_id();
+			}
+			if (counter == 2)
+			{
+				view_campaign_by_train();
+			}
+			if (counter == 3)
+			{
+				view_train_by_id();
+			}
+			if (counter == 4)
+			{
+				add_new_train();
+			}
+		}
+		Set[0] = 7;
+		Set[1] = 7;
+		Set[2] = 7;
+		Set[3] = 7;
+
+		if (counter == 1)
+		{
+			Set[0] = 12;
+		}
+		if (counter == 2)
+		{
+			Set[1] = 12;   //12 is red
+		}
+		if (counter == 3)
+		{
+			Set[2] = 12;
+		}
+		if (counter == 4)
+		{
+			Set[3] = 12;
+		}
+	}
+	return;
+}
+
 void ui_main_menu() {
 	system("cls");
-	int Set[] = { 7,7,7,7 };   //Default colors
+	int Set[] = { 7,7,7,7 };   //Default colors, White
 	int counter = 3;
 	char key;
 
@@ -603,7 +765,7 @@ void ui_main_menu() {
 			}
 			if (counter == 2)
 			{
-				std::cout << "train_menu()";
+				ui_train_menu();
 			}
 			if (counter == 3)
 			{

@@ -3,6 +3,7 @@
 #include "campaign_data_handler.h"
 #include "Passenger_data_handler.h"
 #include "trains_data_handler.h"
+#include "Ticket_data_handler.h"
 
 extern bool admin;
 extern bool debug;

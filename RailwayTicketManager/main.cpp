@@ -36,21 +36,21 @@ void first_time_setup() {
 	add_log("Setup complete. All necessary files created.");
 }
 
-int main(int argc, char* argv[]) {
+int main(long argc, char* argv[]) {
 	// Check the args passed by the user while launching. So far there is only --debug and --admin
-	for (int i = 1; i < argc; i++) {
+	for (long i = 1; i < argc; i++) {
 		if (string(argv[i]) == "--debug") {
 			debug = true;
 			break;
 		}
 	}
-	for (int i = 1; i < argc; i++) {
+	for (long i = 1; i < argc; i++) {
 		if (string(argv[i]) == "--admin") {
 			admin = true;
 			break;
 		}
 	}
-	for (int i = 1; i < argc; i++) {
+	for (long i = 1; i < argc; i++) {
 		if (string(argv[i]) == "--nolog") {
 			logging_disabled = true;
 			break;
