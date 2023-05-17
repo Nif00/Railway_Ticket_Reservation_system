@@ -738,7 +738,7 @@ void ui_train_menu() {
 
 void ui_main_menu() {
 	system("cls");
-	int Set[] = { 7,7,7,7,7 };   //Default colors, White
+	int Set[] = { 7,7,7,7};   //Default colors, White
 	int counter = 3;
 	char key;
 
@@ -760,17 +760,13 @@ void ui_main_menu() {
 		color(Set[3]);
 		std::cout << "4. Passenger";
 
-		gotoxy(10, 9);
-		color(Set[4]);
-		std::cout << "5. Admin";
-
 		key = _getch();
 
 		if (key == 72 && (counter >= 2 && counter <= 4))   //72 = up arrow key
 		{
 			counter--;
 		}
-		if (key == 80 && (counter >= 1 && counter <= 3))   //80 = down arrow key
+		if (key == 80 && (counter >= 1 && counter <= 5))   //80 = down arrow key
 		{
 			counter++;
 		}
@@ -804,9 +800,9 @@ void ui_main_menu() {
 		}
 		if (counter == 2)
 		{
-			Set[1] = 12;   //12 is red
+			Set[1] = 12;   
 		}
-		if (counter == 3)
+		if (counter == 3)   //12 is red
 		{
 			Set[2] = 12;
 		}
