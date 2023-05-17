@@ -33,6 +33,16 @@ void first_time_setup() {
 	ticket_file.close();
 	add_log("Created ticket_data.csv");
 
+	ofstream start_file("start.bat");
+	start_file << "RailwayTicketManager.exe";
+	start_file.close();
+	add_log("Created start.exe");
+
+	ofstream start_admin_file("start-admin.bat");
+	start_file << "RailwayTicketManager.exe --admin";
+	start_admin_file.close();
+	add_log("Created start-admin.bat");
+
 	add_log("Setup complete. All necessary files created.");
 }
 

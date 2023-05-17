@@ -558,8 +558,7 @@ void buy_ticket() {
 }
 
 void ui_campaign_menu() {
-	system("cls");
-	int Set[] = { 7,7,7,7,7 };   //Default colors
+	int Set[] = { 7,7,7,7 };   //Default colors
 	int counter = 3;
 	char key;
 
@@ -580,10 +579,6 @@ void ui_campaign_menu() {
 		gotoxy(10, 8);
 		color(Set[3]);
 		std::cout << "4. Reserved";
-
-		gotoxy(10, 9);
-		color(Set[4]);
-		std::cout << "Go back to main menu";
 
 		key = _getch();
 
@@ -612,10 +607,6 @@ void ui_campaign_menu() {
 			if (counter == 4)
 			{
 				std::cout << " //reserved for future usage";
-			}
-			if (counter == 5)
-			{
-				ui_main_menu;
 			}
 		}
 		Set[0] = 7;
@@ -659,7 +650,6 @@ void view_train_by_ticket_id() {
 }
 
 void ui_train_menu() {
-	system("cls");
 	int Set[] = { 7,7,7,7 };   //Default colors
 	int counter = 3;
 	char key;
