@@ -738,7 +738,7 @@ void ui_train_menu() {
 
 void ui_main_menu() {
 	system("cls");
-	int Set[] = { 7,7,7,7 };   //Default colors, White
+	int Set[] = { 7,7,7,7,7 };   //Default colors, White
 	int counter = 3;
 	char key;
 
@@ -759,6 +759,10 @@ void ui_main_menu() {
 		gotoxy(10, 8);
 		color(Set[3]);
 		std::cout << "4. Passenger";
+
+		gotoxy(10, 9);
+		color(Set[4]);
+		std::cout << "5. Admin";
 
 		key = _getch();
 
