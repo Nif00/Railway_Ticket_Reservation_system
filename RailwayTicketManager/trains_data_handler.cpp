@@ -1,42 +1,33 @@
 #include "trains_data_handler.h"
 
 vector<Train> read_train_data_from_csv() {
-	// Open the file for reading
-	ifstream file(train_path);
+	std::ifstream file(train_path);
+	std::vector<Train> trains;
 
-	if (!file.good()) {
-		ofstream newfile(train_path);
-		newfile.close();
-		file.open(train_path);
-	}
-
-	vector<Train> trains;
-
-	// Check if the file is open
 	if (file.is_open()) {
-		string line;
-		// Read each line of the file
+		std::string line;
 		while (getline(file, line)) {
-			// Create a stringstream from the line
-			stringstream ss(line);
+			std::stringstream ss(line);
 
-			// Parse the CSV data into a Train struct
 			Train t{};
-			ss >> t.id;
-			ss.ignore();
-			ss >> t.wagonNumber;
-			ss.ignore();
-			ss >> t.rows;
-			ss.ignore();
-			ss >> t.columns;
-			ss.ignore();
+			if (ss >> t.id) {
+				ss.ignore();
+				if (ss >> t.wagonNumber) {
+					ss.ignore();
+					if (ss >> t.rows) {
+						ss.ignore();
+						if (ss >> t.columns) {
+							trains.push_back(t);
+						}
+					}
+				}
+			}
 		}
 
-		// Close the file
 		file.close();
 	}
 	else {
-		std::cout << "Error: Unable to open file for reading." << endl;
+		std::cout << "Error: Unable to open file for reading." << std::endl;
 	}
 
 	return trains;

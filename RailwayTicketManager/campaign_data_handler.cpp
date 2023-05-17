@@ -3,78 +3,81 @@
 #include "trains_data_handler.h"
 
 vector<Campaign> read_campaign_data_from_file() {
-	// Open the file for reading
-	ifstream file(campaign_path);
+	std::ifstream file(campaign_path);
+	std::vector<Campaign> campaigns;
 
 	if (!file.good()) {
-		ofstream newfile(campaign_path);
+		std::ofstream newfile(campaign_path);
 		newfile.close();
 		file.open(campaign_path);
 	}
 
-	vector<Campaign> campaigns;
-
-	// Check if the file is open
 	if (file.is_open()) {
-		string line;
-		// Read each line of the file
+		std::string line;
 		while (getline(file, line)) {
-			// Create a stringstream from the line
-			stringstream ss(line);
+			std::stringstream ss(line);
 
-			// Parse the CSV data into a Campaign struct
 			Campaign current{};
-			ss >> current.id;
-			ss.ignore();
-			ss >> current.assigned_train_id;
-			ss.ignore();
-			ss >> current.total_seats;
-			ss.ignore();
-			ss >> current.seats_available;
-			ss.ignore();
-			ss >> current.departure_time;
-			ss.ignore();
-			ss >> current.run_duration;
-			ss.ignore();
-			ss >> current.from;
-			ss.ignore();
-			ss >> current.to;
-			ss.ignore();
+			if (ss >> current.id) {
+				ss.ignore();
+				if (ss >> current.assigned_train_id) {
+					ss.ignore();
+					if (ss >> current.total_seats) {
+						ss.ignore();
+						if (ss >> current.seats_available) {
+							ss.ignore();
+							if (ss >> current.departure_time) {
+								ss.ignore();
+								if (ss >> current.run_duration) {
+									ss.ignore();
+									if (ss >> current.from) {
+										ss.ignore();
+										if (ss >> current.to) {
+											ss.ignore();
 
-			// Read the seat data
-			string seat_data;
-			getline(ss, seat_data);
-			stringstream seat_ss(seat_data);
-			vector<Seat> seats;
-			while (getline(seat_ss, seat_data, ',')) {
-				stringstream seat_data_ss(seat_data);
-				Seat current_seat{};
-				seat_data_ss >> current_seat.id;
-				seat_data_ss.ignore();
+											std::string seat_data;
+											getline(ss, seat_data);
+											std::stringstream seat_ss(seat_data);
 
-				// Convert the column letter to a number
-				char col_letter;
-				seat_data_ss >> col_letter;
-				current_seat.column = col_letter - 'A' + 1;
+											std::vector<Seat> seats;
+											while (getline(seat_ss, seat_data, ',')) {
+												std::stringstream seat_data_ss(seat_data);
+												Seat current_seat{};
+												if (seat_data_ss >> current_seat.id) {
+													seat_data_ss.ignore();
 
-				seat_data_ss >> current_seat.row;
-				seat_data_ss.ignore();
-				seat_data_ss >> current_seat.status;
-				seats.push_back(current_seat);
+													char col_letter;
+													if (seat_data_ss >> col_letter) {
+														current_seat.column = col_letter - 'A' + 1;
+														seat_data_ss.ignore();
+
+														if (seat_data_ss >> current_seat.row) {
+															seat_data_ss.ignore();
+
+															if (seat_data_ss >> current_seat.status) {
+																seats.push_back(current_seat);
+															}
+														}
+													}
+												}
+											}
+
+											current.seat = seats;
+											campaigns.push_back(current);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 			}
-
-			// Assign the vector of seats to the campaign struct
-			current.seat = seats;
-
-			// Add the campaign to the vector
-			campaigns.push_back(current);
 		}
 
-		// Close the file
 		file.close();
 	}
 	else {
-		add_log("[Read Campaign Data] Error: Unable to open file for writing.");
+		std::cout << "Error: Unable to open file for reading." << std::endl;
 	}
 
 	return campaigns;

@@ -4,46 +4,42 @@
 #include "Passenger_data_handler.h"
 
 vector<Ticket> read_ticket_data_from_csv() {
-	// Open the file for reading
-	ifstream file(ticket_path);
+	std::ifstream file(ticket_path);
+	std::vector<Ticket> tickets;
 
 	if (!file.good()) {
-		ofstream newfile(ticket_path);
+		std::ofstream newfile(ticket_path);
 		newfile.close();
 		file.open(ticket_path);
 	}
 
-	vector<Ticket> tickets;
-
-	// Check if the file is open
 	if (file.is_open()) {
-		string line;
-		// Read each line of the file
+		std::string line;
 		while (getline(file, line)) {
-			// Create a stringstream from the line
-			stringstream ss(line);
+			std::stringstream ss(line);
 
-			// Parse the CSV data into a ticket struct
 			Ticket t{};
-			ss >> t.id;
-			ss.ignore();
-			ss >> t.type;
-			ss.ignore();
-			ss >> t.assigned_campaign_id;
-			ss.ignore();
-			ss >> t.assigned_passenger_id;
-			ss.ignore();
-			ss >> t.assigned_seat_id;
-
-			// Add the ticket to the vector
-			tickets.push_back(t);
+			if (ss >> t.id) {
+				ss.ignore();
+				if (ss >> t.type) {
+					ss.ignore();
+					if (ss >> t.assigned_campaign_id) {
+						ss.ignore();
+						if (ss >> t.assigned_passenger_id) {
+							ss.ignore();
+							if (ss >> t.assigned_seat_id) {
+								tickets.push_back(t);
+							}
+						}
+					}
+				}
+			}
 		}
 
-		// Close the file
 		file.close();
 	}
 	else {
-		std::cout << "Error: Unable to open file for reading." << endl;
+		std::cout << "Error: Unable to open file for reading." << std::endl;
 	}
 
 	return tickets;

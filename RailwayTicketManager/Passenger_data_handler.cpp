@@ -1,48 +1,42 @@
 #include "Passenger_data_handler.h"
 
 vector<Passenger> read_passenger_data_from_csv() {
-	// Open the file for reading
-	ifstream file(passenger_path);
+	std::ifstream file(passenger_path);
+	std::vector<Passenger> Passengers;
 
 	if (!file.good()) {
-		ofstream newfile(passenger_path);
+		std::ofstream newfile(passenger_path);
 		newfile.close();
 		file.open(passenger_path);
 	}
 
-	vector<Passenger> Passengers;
-
-	// Check if the file is open
 	if (file.is_open()) {
-		string line;
-		// Read each line of the file
+		std::string line;
 		while (getline(file, line)) {
-			// Create a stringstream from the line
-			stringstream ss(line);
+			std::stringstream ss(line);
 
-			// Parse the CSV data into a Passenger struct
-			Passenger c;
-			ss >> c.id;
-			ss.ignore();
-			ss >> c.name;
-			ss.ignore();
-			ss >> c.surname;
-			ss.ignore();
-			ss >> c.tckn;
-			ss.ignore();
-			ss >> c.age;
-			ss.ignore();
-
-			// Add the Passenger to the vector
-			Passengers.push_back(c);
+			Passenger c{};
+			if (ss >> c.id) {
+				ss.ignore();
+				if (ss >> c.name) {
+					ss.ignore();
+					if (ss >> c.surname) {
+						ss.ignore();
+						if (ss >> c.tckn) {
+							ss.ignore();
+							if (ss >> c.age) {
+								Passengers.push_back(c);
+							}
+						}
+					}
+				}
+			}
 		}
 
-		// Close the file
 		file.close();
 	}
 	else {
-		std::cout << "Error: Unable to open file for reading." << endl;
-		add_log("[Save Passenger Data] Error: Unable to open file for writing.");
+		std::cout << "Error: Unable to open file for reading." << std::endl;
 	}
 
 	return Passengers;
