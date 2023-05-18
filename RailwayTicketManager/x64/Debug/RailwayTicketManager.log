@@ -1,13 +1,3 @@
-﻿  FileIO.cpp
-  main.cpp
-C:\Users\Mert\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\main.cpp(7,13): warning C4566: character represented by universal-character-name '\u0131' cannot be represented in the current code page (1252)
-  campaign_data_handler.cpp
-  Passenger_data_handler.cpp
-  Passenger_data_handler.h
-  Ticket_data_handler.cpp
-  trains_data_handler.cpp
-  user_interface_backend.cpp
-  Generating Code...
-x64\Debug\Passenger_data_handler.obj : warning LNK4042: object specified more than once; extras ignored
-Passenger_data_handler.obj : error LNK2001: unresolved external symbol "bool debug" (?debug@@3_NA)
-C:\Users\Mert\source\repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe : fatal error LNK1120: 1 unresolved externals
+﻿  user_interface_backend.cpp
+C:\Users\User\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(294,20): warning C4129: ' ': unrecognized character escape sequence
+  RailwayTicketManager.vcxproj -> C:\Users\User\source\repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe
