@@ -968,28 +968,44 @@ void ui_train_menu() {
 
 void ui_main_menu() {
 	system("cls");
+
+	std::cout << "             **                                           " << std::endl;
+	std::cout << "            ****     *          *****  ***      *     *  *   *              " << std::endl;
+	std::cout << "           *****    * *           *    *  *    * *    *  **  *    " << std::endl;
+	std::cout << "           ***     *****   ***    *    ***    *****   *  * * *              " << std::endl;
+	std::cout << "          **      *     *         *    *  *  *     *  *  *  **          " << std::endl;
+	std::cout << "        *                 " << std::endl;
+	std::cout << "      *                 " << std::endl;
+	std::cout << "     *                              " << std::endl;
+	std::cout << "    ___  _____________              " << std::endl;
+	std::cout << "    _|____|____|____|_    __________    __________    __________    __________               " << std::endl;
+	std::cout << "  _| |_| |_| |_| |_| |    | |    | |    |   ||   |    | |    | |    |   ||   |     " << std::endl;
+	std::cout << "  |__________________|----|_|_||_|_|----|___||___|----|_|_||_|_|----|___||___|               " << std::endl;
+	std::cout << "    (@)(@)      (@)(@)      @@  @@        @@  @@        @@  @@        @@  @@       " << std::endl;
+
 	int Set[] = { 7,7,7,7,7 };   //Default colors, White
 	int counter = 3;
 	char key;
 
 	for (int i = 0;;)
 	{
-		gotoxy(10, 5);
+		gotoxy(10, 17);
 		color(Set[0]);
 		std::cout << "1. Campaign";
 
-		gotoxy(10, 6);
+		gotoxy(10, 18);
 		color(Set[1]);
 		std::cout << "2. Train";
 
-		gotoxy(10, 7);
+		gotoxy(10, 19);
 		color(Set[2]);
 		std::cout << "3. Ticket";
 
-		gotoxy(10, 8);
+		gotoxy(10, 20);
 		color(Set[3]);
 		std::cout << "4. Passenger";
-		gotoxy(10, 9);
+
+		gotoxy(10, 21);
 		color(Set[4]);
 		std::cout << "5. Reserve a Seat";
 
