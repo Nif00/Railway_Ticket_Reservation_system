@@ -76,6 +76,7 @@ Train find_train_by_id(long id) {
 	return Train{ -1, -1, -1, -1, };
 }
 
+
 long read_last_train_ID() {
 	vector<Train> Trains = read_train_data_from_csv();
 
@@ -107,12 +108,18 @@ void add_new_train() {
 	save_train_data_to_csv(new_train);
 }
 
-void dump_train_csv_data(long num_lines) {
+void dump_train_csv_data(long first_lines, long num_lines) {
 	// Get the Trains from the CSV file
 	vector<Train> Trains = read_train_data_from_csv();
 
 	// Print the specified number of lines
-	long lines_printed = 0;
+	if(first_lines>num_lines)
+	{ 
+		long temp = first_lines;
+		first_lines = num_lines;
+		num_lines = temp;
+	}
+	long lines_printed = first_lines;
 	for (Train c : Trains) {
 		// Print the Train information
 		std::cout << "Train ID: " << c.id << endl;
@@ -127,4 +134,6 @@ void dump_train_csv_data(long num_lines) {
 			break;
 		}
 	}
+	
 }
+

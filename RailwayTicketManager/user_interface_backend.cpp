@@ -556,6 +556,102 @@ void add_new_campaign() {
 void buy_ticket() {
 
 }
+void view_ticket_by_id() {
+	long ticket_id;
+	std::cout << "\n \n      Enter Ticket ID: ";
+	cin >> ticket_id;
+
+	Ticket selected_ticket = find_ticket_by_id(ticket_id);
+	display_ticket(selected_ticket);
+}
+void ui_ticket_menu() {
+	system("cls");
+	if("admin")
+	{
+			int Set[] = { 7,7,7,7,7 };   //Default colors
+			int counter = 3;
+			char key;
+
+			for (int i = 0;;)
+			{
+			gotoxy(10, 5);
+			color(Set[0]);
+			std::cout << "1. View Ticket ID";
+
+			gotoxy(10, 6);
+			color(Set[1]);
+			std::cout << "2. Add a new Ticket";
+
+			gotoxy(10, 7);
+			color(Set[2]);
+			std::cout << "3. Delete Ticket (In progress!!!)";
+
+			gotoxy(10, 8);
+			color(Set[3]);
+			std::cout << "4. Return to Main Menu";
+
+			key = _getch();
+
+			if (key == 72 && (counter >= 2 && counter <= 4))   //72 = up arrow key
+			{
+				counter--;
+			}
+			if (key == 80 && (counter >= 1 && counter <= 3))   //80 = down arrow key
+			{
+				counter++;
+			}
+			if (key == '\r')   //carriage return = enter key
+			{
+				if (counter == 1)
+				{
+					gotoxy(10, 11);
+					view_ticket_by_id();
+				}
+				if (counter == 2)
+				{
+					gotoxy(10, 11);
+					add_new_ticket();
+				}
+				if (counter == 3)
+				{
+					gotoxy(10, 11);
+					//delete
+				}
+				if (counter == 4)
+				{
+					gotoxy(10, 11);
+					ui_main_menu();
+				}
+			}
+			Set[0] = 7;
+			Set[1] = 7;
+			Set[2] = 7;
+			Set[3] = 7;
+
+			if (counter == 1)
+			{
+				Set[0] = 12;
+			}
+			if (counter == 2)
+			{
+				Set[1] = 12;   //12 is red
+			}
+			if (counter == 3)
+			{
+				Set[2] = 12;
+			}
+			if (counter == 4)
+			{
+				Set[3] = 12;
+			}
+		}
+	}
+	else
+	{
+		buy_ticket();
+	}
+	return;
+}
 
 void ui_campaign_menu() {
 	system("cls");
@@ -738,78 +834,87 @@ void ui_train_menu() {
 
 void ui_main_menu() {
 	system("cls");
-	int Set[] = { 7,7,7,7 };   //Default colors, White
-	int counter = 3;
-	char key;
-
-	for (int i = 0;;)
+	if("admin")
 	{
-		gotoxy(10, 5);
-		color(Set[0]);
-		std::cout << "1. Campaign";
+		int Set[] = { 7,7,7,7 };   //Default colors, White
+		int counter = 3;
+		char key;
 
-		gotoxy(10, 6);
-		color(Set[1]);
-		std::cout << "2. Train";
-
-		gotoxy(10, 7);
-		color(Set[2]);
-		std::cout << "3. Ticket";
-
-		gotoxy(10, 8);
-		color(Set[3]);
-		std::cout << "4. Passenger";
-
-		key = _getch();
-
-		if (key == 72 && (counter >= 2 && counter <= 4))   //72 = up arrow key
+		for (int i = 0;;)
 		{
-			counter--;
-		}
-		if (key == 80 && (counter >= 1 && counter <= 3))   //80 = down arrow key
-		{
-			counter++;
-		}
-		if (key == '\r')   //carriage return = enter key
-		{
+			gotoxy(10, 5);
+			color(Set[0]);
+			std::cout << "1. Campaign";
+
+			gotoxy(10, 6);
+			color(Set[1]);
+			std::cout << "2. Train";
+
+			gotoxy(10, 7);
+			color(Set[2]);
+			std::cout << "3. Ticket";
+
+			gotoxy(10, 8);
+			color(Set[3]);
+			std::cout << "4. Passenger";
+	
+			key = _getch();
+	
+			if (key == 72 && (counter >= 2 && counter <= 4))   //72 = up arrow key
+			{
+				counter--;
+			}
+			if (key == 80 && (counter >= 1 && counter <= 3))   //80 = down arrow key
+			{
+				counter++;
+			}
+			if (key == '\r')   //carriage return = enter key
+			{
+				if (counter == 1)
+				{
+					ui_campaign_menu();
+				}
+				if (counter == 2)
+				{
+					ui_train_menu();
+				}
+				if (counter == 3)
+				{
+					ui_ticket_menu();
+				}
+				if (counter == 4)
+				{
+					selectSeat();
+				}
+			}
+			Set[0] = 7;
+			Set[1] = 7;
+			Set[2] = 7;
+			Set[3] = 7;
+	
 			if (counter == 1)
 			{
-				ui_campaign_menu();
+				Set[0] = 12;
 			}
 			if (counter == 2)
 			{
-				ui_train_menu();
+				Set[1] = 12;   //12 is red
 			}
 			if (counter == 3)
 			{
-				std::cout << "ticket_menu()";
+				Set[2] = 12;
 			}
 			if (counter == 4)
 			{
-				selectSeat();
+				Set[3] = 12;
 			}
 		}
-		Set[0] = 7;
-		Set[1] = 7;
-		Set[2] = 7;
-		Set[3] = 7;
-
-		if (counter == 1)
-		{
-			Set[0] = 12;
-		}
-		if (counter == 2)
-		{
-			Set[1] = 12;   //12 is red
-		}
-		if (counter == 3)
-		{
-			Set[2] = 12;
-		}
-		if (counter == 4)
-		{
-			Set[3] = 12;
-		}
+	}
+	else
+	{
+		ui_ticket_menu();
 	}
 	return;
 }
+
+//campaign id den tren bilgisi bul, campaign id den önce treni bul sonra tren bilgisini yansýt 
