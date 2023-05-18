@@ -119,3 +119,14 @@ void dump_train_csv_data(long num_lines) {
 		}
 	}
 }
+
+void delete_train_data()
+{
+	std::cout << "Choose the ID of a train you want to delete: ";
+	int idToRemove;
+	cin >> idToRemove;
+	vector<Train> data = read_train_data_from_csv();
+	data.erase(std::remove_if(data.begin(), data.end(), [idToRemove](const Train& structure) {
+		return structure.id == idToRemove;
+		}), data.end());
+}

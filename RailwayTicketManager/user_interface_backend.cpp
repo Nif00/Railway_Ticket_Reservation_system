@@ -431,7 +431,7 @@ void display_campaign(Campaign c) {
 	}
 	std::cout << endl << "Press any key to return to main menu";
 	_getch();
-	return;
+	ui_main_menu();
 }
 
 void display_train(Train t) {
@@ -442,7 +442,7 @@ void display_train(Train t) {
 	std::cout << "Rows: " << t.rows << endl;
 	std::cout << endl << "Press any key to return to main menu";
 	_getch();
-	return;
+	ui_main_menu();
 }
 
 void display_ticket(Ticket t) {
@@ -644,23 +644,17 @@ void ui_campaign_menu() {
 }
 
 void view_train_by_id() {
-	long id = ui_train_selector(read_train_data_from_csv());
-	display_train(find_train_by_id(id));
-}
+	long train_id;
+	std::cout << "\n \n      Enter Train ID: ";
+	cin >> train_id;
 
-void view_train_by_campaign_id() {
-	long id = find_campaign_by_id(ui_campaign_selector(read_campaign_data_from_file())).assigned_train_id;
-	display_train(find_train_by_id(id));
-}
-
-void view_train_by_ticket_id() {
-	long id = ui_ticket_selector(read_ticket_data_from_csv());
-
+	Train selected_train = find_train_by_id(train_id);
+	display_train(selected_train);
 }
 
 void ui_train_menu() {
 	system("cls");
-	int Set[] = { 7,7,7,7 };   //Default colors
+	int Set[] = { 7,7,7,7,7 };   //Default colors
 	int counter = 3;
 	char key;
 
@@ -668,19 +662,19 @@ void ui_train_menu() {
 	{
 		gotoxy(10, 5);
 		color(Set[0]);
-		std::cout << "1. View train by id";
+		std::cout << "1. View Train by Train ID";
 
 		gotoxy(10, 6);
 		color(Set[1]);
-		std::cout << "2. View train by campaign id";
+		std::cout << "2. Add a new Train";
 
 		gotoxy(10, 7);
 		color(Set[2]);
-		std::cout << "3. View train by ticket id";
+		std::cout << "3. Delete Train (In progress!!!)";
 
 		gotoxy(10, 8);
 		color(Set[3]);
-		std::cout << "4. Add a new train";
+		std::cout << "4. Return to Main Menu";
 
 		key = _getch();
 
@@ -696,19 +690,23 @@ void ui_train_menu() {
 		{
 			if (counter == 1)
 			{
-				view_campaign_by_id();
+				gotoxy(10, 11);
+				view_train_by_id();
 			}
 			if (counter == 2)
 			{
-				view_campaign_by_train();
+				gotoxy(10, 11);
+				add_new_train();
 			}
 			if (counter == 3)
 			{
-				view_train_by_id();
+				gotoxy(10, 11);
+				delete_train_data();//delete
 			}
 			if (counter == 4)
 			{
-				add_new_train();
+				gotoxy(10, 11);
+				ui_main_menu();
 			}
 		}
 		Set[0] = 7;
