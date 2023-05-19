@@ -1,0 +1,3 @@
+E:\Code\cpp\Railway_Ticket_Reservation_system\RailwayTicketManager\x64\Release\RailwayTicketManager.vcxproj.MdMergeInputs.cache
+E:\Code\cpp\Railway_Ticket_Reservation_system\RailwayTicketManager\x64\Release\RailwayTicketManager.vcxproj.cppwinrt_plat.cache
+E:\Code\cpp\Railway_Ticket_Reservation_system\RailwayTicketManager\x64\Release\RailwayTicketManager.vcxproj.cppwinrt_comp.cache
