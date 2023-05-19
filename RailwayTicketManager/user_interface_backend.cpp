@@ -132,12 +132,12 @@ long ui_passenger_selector()
 	long passenger_id;
 	string name, surname;
 	std::cout << "Enter your Passeneger ID, If you do not know your Passenger ID enter -1";
-	cin >> passenger_id;
+	std::cin >> passenger_id;
 	if (passenger_id == -1) {
 		std::cout << "Enter your name";
-		cin >> name;
+		std::cin >> name;
 		std::cout << "Enter your surname";
-		cin >> surname;
+		std::cin >> surname;
 		Passenger selected_passenger = find_passenger_by_name(name, surname);
 		return selected_passenger.id;
 	}
@@ -347,7 +347,7 @@ void selectSeat() {
 				cout <<endl<< "\t\t(Scroll up to view available seats)";
 				color(7);
 				seperator();
-				cin >> inpN >> inpS;
+				std::cin >> inpN >> inpS;
 				switch (inpN)
 				{
 				case 'A':
@@ -414,7 +414,7 @@ void selectSeat() {
 			seperator();
 			cout << endl << "\tIf you want to reselect your seat enter 1 if not enter anything else" << endl;
 			seperator();
-			cin >> wish_to_proceed;
+			std::cin >> wish_to_proceed;
 			if (wish_to_proceed == 1)
 			{
 				//cout << "reselect: " << reselect << "seat occupied: " << seat_occupied << endl;
@@ -646,7 +646,7 @@ void display_passenger(Passenger p) {
 void view_campaign_by_id() {
 	int train_id;
 	std::cout << "\n \n      Enter Train ID: ";
-	cin >> train_id;
+	std::cin >> train_id;
 
 	vector<Campaign> campaigns = campaigns_by_train(train_id);
 	Campaign selected_campaign = find_campaign_by_id(ui_campaign_selector(campaigns));
@@ -673,13 +673,13 @@ void add_new_campaign() {
 
 	string departure_time, run_duration, from, to;
 	std::cout << "enter departure time: ";
-	cin >> departure_time;
+	std::cin >> departure_time;
 	std::cout << "enter run duration: ";
-	cin >> run_duration;
+	std::cin >> run_duration;
 	std::cout << "enter the starting city: ";
-	cin >> from;
+	std::cin >> from;
 	std::cout << "enter the arrival city: ";
-	cin >> to;
+	std::cin >> to;
 	new_campaign_id = read_last_campaign_id() + 1;
 	Campaign new_campaign;
 	new_campaign.id = new_campaign_id;
@@ -795,28 +795,35 @@ void buy_ticket() {
 
 
 void view_ticket_by_id() {
+	long id;
 	std::cout << "\n \n      Enter Ticket ID: ";
+	cin >> id;
+	Ticket selected_ticket = find_ticket_by_id(id);
 	display_ticket(selected_ticket);
 	system("cls");
 }
 
 void ui_ticket_menu() {
-	system("cls");
-	{
-
-		for (int i = 0;;)
+	if (admin) {
+		system("cls");
+		int Set[] = { 7,7,7 };
+		int counter = 3;
+		char key = 0;
 		{
-			gotoxy(10, 5);
-			color(Set[0]);
-			std::cout << "1. View Ticket ID";
 
-			color(Set[1]);
-			color(Set[2]);
-			std::cout << "3. Delete Ticket (In progress!!!)";
+			for (int i = 0;;)
+			{
+				gotoxy(10, 5);
+				color(Set[0]);
+				std::cout << "1. View Ticket ID";
 
-			gotoxy(10, 8);
-			color(Set[3]);
-			std::cout << "4. Return to Main Menu";
+				color(Set[1]);
+				color(Set[2]);
+				std::cout << "3. Delete Ticket (In progress!!!)";
+
+				gotoxy(10, 8);
+				color(Set[3]);
+				std::cout << "4. Return to Main Menu";
 
 
 			}
@@ -827,35 +834,35 @@ void ui_ticket_menu() {
 			if (key == '\r')   //carriage return = enter key
 			{
 				{
-				if (counter == 2)
-				{
-					gotoxy(10, 11);
-					add_new_ticket();
+					if (counter == 2)
+					{
+						gotoxy(10, 11);
+						add_new_ticket();
+					}
+					if (counter == 3)
+						gotoxy(10, 11);
+					{
+						gotoxy(10, 11);
+						ui_main_menu();
+					}
 				}
-				if (counter == 3)
-					gotoxy(10, 11);
-				{
-					gotoxy(10, 11);
-					ui_main_menu();
-				}
-			}
-			Set[0] = 7;
-			Set[1] = 7;
-			Set[3] = 7;
+				Set[0] = 7;
+				Set[1] = 7;
+				Set[3] = 7;
 
-			if (counter == 1)
-			{
-				Set[0] = 12;
-			}
-			if (counter == 4)
-			{
-				Set[3] = 12;
+				if (counter == 1)
+				{
+					Set[0] = 12;
+				}
+				if (counter == 4)
+				{
+					Set[3] = 12;
+				}
 			}
 		}
 	}
-	else
-		buy_ticket();
-
+	else buy_ticket();
+}
 void ui_campaign_menu() {
 	system("cls");
 	int Set[] = { 7,7,7,7,7 };   //Default colors
@@ -943,24 +950,21 @@ void ui_campaign_menu() {
 }
 
 void view_train_by_id() {
-	display_train(find_train_by_id(id));
-}
+	long train_id;
 	std::cout << "\n \n      Enter Train ID: ";
-	cin >> train_id;
-
-	Train selected_train = find_train_by_id(train_id);
+	std::cin >> train_id;
+	display_train(find_train_by_id(train_id));
 }
 
-void view_train_by_ticket_id() {
-	long id = ui_ticket_selector(read_ticket_data_from_csv());
+
 void train_list() {
 	long f_line, n_lines;
 	cout << "Enter the train count interval you want to see:\nFrom: ";
-	cin >> f_line;
+	std::cin >> f_line;
 	cout << "To: ";
-	cin >> n_lines;
+	std::cin >> n_lines;
 	cout << "To: \n\n";
-	dump_train_csv_data(f_line, n_lines);
+	dump_train_csv_data(f_line);
 
 	cout << "\n\nPress any key to return to main menu";
 	_getch();
@@ -1020,7 +1024,7 @@ void ui_train_menu() {
 			if (counter == 3)
 			{
 				gotoxy(10, 11);
-				delete_train_data();//delete
+				cout << " delete_train_data()   WIP!";//delete
 			}
 			if (counter == 4)
 			{
