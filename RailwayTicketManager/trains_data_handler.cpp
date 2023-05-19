@@ -82,17 +82,13 @@ long read_last_train_ID() {
 	return last_Train.id;
 }
 
-
 void add_new_train() {
 	long train_id{ 0 }, row{ 0 }, col{ 0 }, wagonNumber{ 0 };
-		
-	std::cout << "Enter the row of seats: ";
+	std::cout << "Enter the row of seats";
 	cin >> row;
-		
-	
-	std::cout << "Enter the column of seats: ";
+	std::cout << "Enter the column of seats";
 	cin >> col;
-	std::cout << "Enter the number of wagons: ";
+	std::cout << "Enter the number of wagons";
 	cin >> wagonNumber;
 	Train new_train{};
 	new_train.id = read_last_train_ID() + 1;
@@ -100,83 +96,26 @@ void add_new_train() {
 	new_train.rows = row;
 	new_train.wagonNumber = wagonNumber;
 	save_train_data_to_csv(new_train);
-	std::cout << "Train succesfully added. Press a key to continue: ";
-	_getch();
-	system("cls");
 }
 
-void dump_train_csv_data(long first_lines, long num_lines) {
+void dump_train_csv_data(long num_lines) {
 	// Get the Trains from the CSV file
 	vector<Train> Trains = read_train_data_from_csv();
 
 	// Print the specified number of lines
-	if (first_lines > num_lines)
-	{
-		long temp = first_lines;
-		first_lines = num_lines;
-		num_lines = temp;
-	}
-	long lines_printed = first_lines;
+	long lines_printed = 0;
 	for (Train c : Trains) {
 		// Print the Train information
 		std::cout << "Train ID: " << c.id << endl;
 		std::cout << "Wagon Number: " << c.wagonNumber << endl;
 		std::cout << "Rows: " << c.rows << endl;
 		std::cout << "Columns: " << c.columns << endl;
-		std::cout << "Seats: "<<c.columns*c.rows*c.wagonNumber;
-		std::cout << "\n\n*************************************************\n";
+		std::cout << "Seats: ";
+
 		// Increment the number of lines printed and check if we've reached the limit
 		lines_printed++;
 		if (lines_printed >= num_lines) {
 			break;
 		}
-	}
-
-}
-
-void delete_train_data() {
-
-	long train_id;
-	std::cout << "Enter the Train ID that you want to delete: ";
-	std::cin >> train_id;
-	// Read the existing data from the file
-	std::ifstream inputFile(train_path);
-	std::vector<std::string> lines;
-	std::string line;
-
-	if (inputFile.is_open()) {
-		while (std::getline(inputFile, line)) {
-			lines.push_back(line);
-		}
-		inputFile.close();
-	}
-	else {
-		std::cout << "Error: Unable to open file for reading." << std::endl;
-		return;
-	}
-
-	// Open the file for writing
-	std::ofstream outputFile(train_path);
-
-	if (outputFile.is_open()) {
-		for (const auto& currentLine : lines) {
-			std::istringstream iss(currentLine);
-			std::vector<std::string> trainData;
-			std::string data;
-
-			while (std::getline(iss, data, ',')) {
-				trainData.push_back(data);
-			}
-
-			if (!trainData.empty() && std::stoi(trainData[0]) != train_id) {
-				outputFile << currentLine << std::endl;
-			}
-		}
-
-		outputFile.close();
-		std::cout << "Train data with ID " << train_id << " deleted successfully." << std::endl;
-	}
-	else {
-		std::cout << "Error: Unable to open file for writing." << std::endl;
 	}
 }

@@ -143,37 +143,100 @@ long ui_passenger_selector()
 	}
 	else return passenger_id;
 }
+vector<Campaign> read_from_csv() {
+	// Open the file for reading
+	ifstream file("campaign_data.csv");
 
+	if (!file.good()) {
+		ofstream newfile("campaign_data.csv");
+		newfile.close();
+		file.open("campaign_data.csv");
+	}
+
+	vector<Campaign> campaigns;
+
+	// Check if the file is open
+	if (file.is_open()) {
+		string line;
+		// Read each line of the file
+		while (getline(file, line)) {
+			// Create a stringstream from the line
+			stringstream ss(line);
+
+			// Parse the CSV data into a Campaign struct
+			Campaign c;
+			ss >> c.id;
+			ss.ignore();
+			ss >> c.assigned_train_id;
+			ss.ignore();
+			ss >> c.total_seats;
+			ss.ignore();
+			ss >> c.seats_available;
+			ss.ignore();
+
+			// Read the seat data
+			string seat_data;
+			getline(ss, seat_data);
+			stringstream seat_ss(seat_data);
+			vector<Seat> seats;
+			while (getline(seat_ss, seat_data, ',')) {
+				stringstream seat_data_ss(seat_data);
+				Seat s;
+				seat_data_ss >> s.id;
+				seat_data_ss.ignore();
+				seat_data_ss >> s.row;
+				seat_data_ss.ignore();
+				seat_data_ss >> s.column;
+				seat_data_ss.ignore();
+				seat_data_ss >> s.status;
+				seats.push_back(s);
+			}
+
+			// Assign the vector of seats to the campaign struct
+			c.seat = seats;
+
+			// Add the campaign to the vector
+			campaigns.push_back(c);
+		}
+
+		// Close the file
+		file.close();
+	}
+	else {
+		cout << "Error: Unable to open file for reading." << endl;
+	}
+
+	return campaigns;
+}
 void seperator() {
 	string a0 = "Please enter the seat that you wish to buy (e.g. A01)";
 	string h(2 * a0.length(), '\xdb');
 	color(12);
-	cout << "\n\n" << h;	cout << endl << endl;
+cout <<"\n\n" << h;	cout << endl << endl;
 
 	color(7);
 }
-
 void display_seat() {
 	system("cls");
-	vector<Campaign> campaigns = read_campaign_data_from_file();
+	vector<Campaign> campaigns = read_from_csv();
 	//Write Logic here to select campaign
 	for (Campaign c : campaigns)
 	{
-		seperator();
+	seperator();
 		std::cout << "   Campaign ID: " << c.id << endl;
 		std::cout << "   Assigned Train ID: " << c.assigned_train_id << endl;
 		std::cout << "   Total Seats: " << c.total_seats << endl;
 		std::cout << "   Seats Available: " << c.seats_available;
 		seperator();
 		color(12);
-		cout << "\t\t\t\tSeats:" << endl << endl;
+		cout << "\t\t\t\tSeats:" << endl<<endl;
 		color(7);
 
 		int k = 0;
 		if (k == 0)
 		{
 			color(12);
-			std::cout << "\t";
+			std::cout <<"\t";
 			color(7);
 		}
 		for (Seat s : c.seat)
@@ -265,7 +328,7 @@ void display_seat() {
 
 void selectSeat() {
 	system("cls");
-	vector<Campaign> campaigns = read_campaign_data_from_file();
+	vector<Campaign> campaigns = read_from_csv();
 	int Set[] = { 7,7,7,7 };   //Default colors, White
 	int counter = 3;
 	for (Campaign c : campaigns) {
@@ -281,7 +344,7 @@ void selectSeat() {
 				seperator();
 				cout << "\tPlease enter the seat that you wish to buy (e.g. A01)" << endl;
 				color(8);
-				cout << endl << "\t\t(Scroll up to view available seats)";
+				cout <<endl<< "\t\t(Scroll up to view available seats)";
 				color(7);
 				seperator();
 				cin >> inpN >> inpS;
@@ -327,14 +390,14 @@ void selectSeat() {
 						seat_occupied = true;
 					}
 				}
-				if (inpSN > 3 || inpS * 4 > c.total_seats || seat_occupied || inpS < 1)
+				if (inpSN > 3 || inpS * 4 > c.total_seats || seat_occupied || inpS<1)
 
 				{
 					system("cls");
 					seperator();
 					cout << "\tSeat couldn't be found or the seat is occupied, please try again";
 					color(12);
-					cout << endl << "\n\t\tPress any button to countinue";
+					cout << endl<< "\n\t\tPress any button to countinue";
 					color(7);
 					seperator();
 					_getch();
@@ -364,12 +427,12 @@ void selectSeat() {
 				seperator();
 				cout << "\tYour seat will be displayed as: ";
 				color(12);
-				cout << "\xdb" << "XXX" << "\xdb ";
-				color(7);
-				color(12);
-				cout << endl << endl << "\t\t\tPress any button to countinue";
-				color(7);
-				seperator();
+			cout << "\xdb" << "XXX" << "\xdb ";
+			color(7);
+			color(12);
+			cout << endl <<endl<< "\t\t\tPress any button to countinue";
+			color(7);
+			seperator();
 				_getch();
 				system("cls");
 				for (Campaign c : campaigns)
@@ -383,7 +446,7 @@ void selectSeat() {
 					if (k == 0)
 					{
 						color(12);
-						cout << "\t";
+						cout <<"\t";
 						color(7);
 
 					}
@@ -441,7 +504,7 @@ void selectSeat() {
 									color(12);
 									cout << "\t\t\xdbXXX\xdb";
 									color(7);
-									cout << " = Selected Seat";
+									cout<< " = Selected Seat";
 								case 1:
 									color(12);
 									cout << "\t\t\x1e";
@@ -479,7 +542,7 @@ void selectSeat() {
 				}
 			}
 			seperator();
-			cout << endl << "\tYour seat has been successfully reserved" << endl;
+			cout  <<endl << "\tYour seat has been successfully reserved" << endl;
 			//Need to add function for Reserved Seat to be saved to campaign_data.csv
 			valid_seat_request = true;
 
@@ -494,7 +557,6 @@ void selectSeat() {
 	_getch();
 	system("cls");
 }
-
 
 void display_seats(Campaign campaign) {
 	int i{ 0 };
@@ -521,10 +583,11 @@ void display_campaign(Campaign c) {
 	}
 	std::cout << endl << "Press any key to return to main menu";
 	_getch();
-	ui_main_menu();
+	return;
 }
 
 void display_train(Train t) {
+	std::cout << "Train ID: " << t.id << endl;
 	gotoxy(10, 15);
 	std::cout << "Train ID: " << t.id;
 	gotoxy(10, 16);
@@ -649,25 +712,22 @@ void add_new_campaign() {
 	add_log("[Add Campaign] ID: " + to_string(new_campaign_id) + ", Assigned Train ID: " + to_string(train_id) + ", Total Seats: " + to_string(total_seats) + ", Seats Available: " + to_string(seats_available) + ", Departure Time: " + departure_time + ", Run Duration: " + run_duration + ", From: " + from + ", To: " + to);
 }
 
+void select_to_buy() {
+
+	system("cls");
+	seperator();
+	cout << "\t\t\t\t  ** Work In Progress **\n\n";
+	cout << "\t\t\t--Input screen to select campaign and train--";
+	color(12);
+	cout << endl << "\n\t\t\t       Press any button to countinue";
+	color(7);
+	seperator();
+	_getch();
+
+}
 void buy_ticket() {
-
-}
-
-void view_ticket_by_id() {
-	long ticket_id;
-	std::cout << "\n \n      Enter Ticket ID: ";
-	cin >> ticket_id;
-
-	Ticket selected_ticket = find_ticket_by_id(ticket_id);
-	display_ticket(selected_ticket);
-	system("cls");
-}
-
-void ui_ticket_menu() {
-	system("cls");
-	if ("admin")
-	{
-		int Set[] = { 7,7,7,7,7 };   //Default colors
+		system("cls");
+		int Set[] = { 7,7,7};   //Default colors
 		int counter = 3;
 		char key;
 
@@ -675,19 +735,15 @@ void ui_ticket_menu() {
 		{
 			gotoxy(10, 5);
 			color(Set[0]);
-			std::cout << "1. View Ticket ID";
+			std::cout << "1. Reserve a Seat";
 
 			gotoxy(10, 6);
 			color(Set[1]);
-			std::cout << "2. Add a new Ticket";
+			std::cout << "2. Show Reserved Tickets";
 
 			gotoxy(10, 7);
 			color(Set[2]);
-			std::cout << "3. Delete Ticket (In progress!!!)";
-
-			gotoxy(10, 8);
-			color(Set[3]);
-			std::cout << "4. Return to Main Menu";
+			std::cout << "Go back to main menu";
 
 			key = _getch();
 
@@ -703,29 +759,22 @@ void ui_ticket_menu() {
 			{
 				if (counter == 1)
 				{
-					gotoxy(10, 11);
-					view_ticket_by_id();
+					select_to_buy();
+					selectSeat();
 				}
 				if (counter == 2)
 				{
-					gotoxy(10, 11);
-					add_new_ticket();
+					system("cls");
+					cout << "\n\n\t\tWIP";
 				}
 				if (counter == 3)
 				{
-					gotoxy(10, 11);
-					//delete
-				}
-				if (counter == 4)
-				{
-					gotoxy(10, 11);
 					ui_main_menu();
 				}
 			}
 			Set[0] = 7;
 			Set[1] = 7;
 			Set[2] = 7;
-			Set[3] = 7;
 
 			if (counter == 1)
 			{
@@ -739,6 +788,65 @@ void ui_ticket_menu() {
 			{
 				Set[2] = 12;
 			}
+		}
+		return;
+	}
+
+
+
+void view_ticket_by_id() {
+	std::cout << "\n \n      Enter Ticket ID: ";
+	display_ticket(selected_ticket);
+	system("cls");
+}
+
+void ui_ticket_menu() {
+	system("cls");
+	{
+
+		for (int i = 0;;)
+		{
+			gotoxy(10, 5);
+			color(Set[0]);
+			std::cout << "1. View Ticket ID";
+
+			color(Set[1]);
+			color(Set[2]);
+			std::cout << "3. Delete Ticket (In progress!!!)";
+
+			gotoxy(10, 8);
+			color(Set[3]);
+			std::cout << "4. Return to Main Menu";
+
+
+			}
+			if (key == 80 && (counter >= 1 && counter <= 3))   //80 = down arrow key
+			{
+				counter++;
+			}
+			if (key == '\r')   //carriage return = enter key
+			{
+				{
+				if (counter == 2)
+				{
+					gotoxy(10, 11);
+					add_new_ticket();
+				}
+				if (counter == 3)
+					gotoxy(10, 11);
+				{
+					gotoxy(10, 11);
+					ui_main_menu();
+				}
+			}
+			Set[0] = 7;
+			Set[1] = 7;
+			Set[3] = 7;
+
+			if (counter == 1)
+			{
+				Set[0] = 12;
+			}
 			if (counter == 4)
 			{
 				Set[3] = 12;
@@ -746,11 +854,7 @@ void ui_ticket_menu() {
 		}
 	}
 	else
-	{
 		buy_ticket();
-	}
-	return;
-}
 
 void ui_campaign_menu() {
 	system("cls");
@@ -810,7 +914,7 @@ void ui_campaign_menu() {
 			}
 			if (counter == 5)
 			{
-				ui_main_menu;
+				ui_main_menu();
 			}
 		}
 		Set[0] = 7;
@@ -839,14 +943,16 @@ void ui_campaign_menu() {
 }
 
 void view_train_by_id() {
-	long train_id;
+	display_train(find_train_by_id(id));
+}
 	std::cout << "\n \n      Enter Train ID: ";
 	cin >> train_id;
 
 	Train selected_train = find_train_by_id(train_id);
-	display_train(selected_train);
 }
 
+void view_train_by_ticket_id() {
+	long id = ui_ticket_selector(read_ticket_data_from_csv());
 void train_list() {
 	long f_line, n_lines;
 	cout << "Enter the train count interval you want to see:\nFrom: ";

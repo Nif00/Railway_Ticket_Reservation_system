@@ -1,4 +1,0 @@
-﻿  user_interface_backend.cpp
-C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(231,20): warning C4129: ' ': tanınmayan karakter kaçış sırası
-C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(813,5): warning C4551: işlev çağrısında bağımsız değişken listesi eksik
-  RailwayTicketManager.vcxproj -> C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe

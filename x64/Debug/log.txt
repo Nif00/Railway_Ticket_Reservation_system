@@ -1,9 +1,10 @@
-[Thu May 18 10:43:17 2023] Detected first time running program. Running first time setup
-[Thu May 18 10:43:17 2023] Created campaign_data.csv
-[Thu May 18 10:43:17 2023] Created train_data.csv
-[Thu May 18 10:43:17 2023] Created passenger_data.csv
-[Thu May 18 10:43:17 2023] Created ticket_data.csv
-[Thu May 18 10:43:17 2023] Created start.exe
-[Thu May 18 10:43:17 2023] Created start-admin.bat
-[Thu May 18 10:43:17 2023] Setup complete. All necessary files created.
-[Thu May 18 10:43:17 2023] ----------------
+[Thu May 18 00:19:40 2023] Detected first time running program. Running first time setup
+[Thu May 18 00:19:40 2023] Created campaign_data.csv
+[Thu May 18 00:19:40 2023] Created train_data.csv
+[Thu May 18 00:19:40 2023] Created passenger_data.csv
+[Thu May 18 00:19:40 2023] Created ticket_data.csv
+[Thu May 18 00:19:40 2023] Created start.exe
+[Thu May 18 00:19:40 2023] Created start-admin.bat
+[Thu May 18 00:19:40 2023] Setup complete. All necessary files created.
+[Thu May 18 00:19:40 2023] ----------------
+[Thu May 18 00:19:52 2023] ----------------
