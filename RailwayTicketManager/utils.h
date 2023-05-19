@@ -9,7 +9,6 @@
 #include <ctime>
 #include <conio.h>
 #include <thread>
-
 #include "log.h"
 
 using namespace std;

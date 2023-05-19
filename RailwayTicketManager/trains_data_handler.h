@@ -15,5 +15,5 @@ void save_train_data_to_csv(const Train& new_Train);
 Train find_train_by_id(long id);
 long read_last_train_ID();
 void add_new_train();
-void dump_train_csv_data(long num_lines);
+void dump_train_csv_data(long first_lines, long num_lines);
 void delete_train_data();

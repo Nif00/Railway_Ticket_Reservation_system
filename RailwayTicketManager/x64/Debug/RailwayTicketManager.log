@@ -1,8 +1,4 @@
-﻿  trains_data_handler.cpp
-x64\Debug\Passenger_data_handler.obj : warning LNK4042: Nesne birden çok kez belirtildi; fazla olanlar yoksayıldı
-x64\Debug\log.obj : warning LNK4042: Nesne birden çok kez belirtildi; fazla olanlar yoksayıldı
-main.obj : error LNK2019: çözümlenmemiş dış sembol "void __cdecl add_log(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?add_log@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) için "void __cdecl first_time_setup(void)" (?first_time_setup@@YAXXZ) işlevinde başvuruldu
-Ticket_data_handler.obj : error LNK2001: çözümlenmemiş dış sembol "void __cdecl add_log(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?add_log@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
-user_interface_backend.obj : error LNK2001: çözümlenmemiş dış sembol "void __cdecl add_log(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?add_log@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
-user_interface_backend.obj : error LNK2019: çözümlenmemiş dış sembol "struct Passenger __cdecl find_passenger_by_name(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?find_passenger_by_name@@YA?AUPassenger@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z) için "long __cdecl ui_passenger_selector(void)" (?ui_passenger_selector@@YAJXZ) işlevinde başvuruldu
-C:\Users\CASPER\Source\Repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe : fatal error LNK1120: 2 çözümlenmemiş dışlar
+﻿  user_interface_backend.cpp
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(231,20): warning C4129: ' ': tanınmayan karakter kaçış sırası
+C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\RailwayTicketManager\user_interface_backend.cpp(813,5): warning C4551: işlev çağrısında bağımsız değişken listesi eksik
+  RailwayTicketManager.vcxproj -> C:\Users\CASPER\source\repos\Railway_Ticket_Reservation_system\x64\Debug\RailwayTicketManager.exe
